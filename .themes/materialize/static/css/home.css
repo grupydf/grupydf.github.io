@@ -1,5 +1,6 @@
 .hero {
 	height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) repeat scroll 0 0%, rgba(0, 0, 0, 0) url("/theme/img/ponte-jk.jpg") repeat scroll 0 0;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -7,7 +8,6 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	background-image: url('/theme/img/ponte-jk.jpg');
 	overflow: hidden;
 }
 
@@ -15,10 +15,9 @@
 	padding: 10px;
 	padding-top: 50px;
 	padding-bottom: 40px;
-	color: #cfd8dc;
+	color: #fff;
 	font-size: 1.4em;
 	text-align: center;
-	text-shadow: -2px -1px 0 #212121;
 }
 
 .hero .logo {
