@@ -1,0 +1,64 @@
+.hero {
+	height: 600px;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-image: url('/theme/img/ponte-jk.jpg');
+	overflow: hidden;
+}
+
+.hero-content {
+	padding: 10px;
+	padding-top: 50px;
+	padding-bottom: 40px;
+	color: #cfd8dc;
+	font-size: 1.4em;
+	text-align: center;
+	text-shadow: -2px -1px 0 #212121;
+}
+
+.hero .logo {
+    height: 250px;
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block p {
+    height: 130px;
+}
+
+#home-container {
+    padding-top: 50px;
+}
+
+@media (max-width: 992px) {
+    .hero .logo {
+        height: 200px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .hero {
+        height: 550px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero .logo {
+        height: 150px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .hero {
+        height: 450px;
+        font-size: 0.8em;
+    }
+}

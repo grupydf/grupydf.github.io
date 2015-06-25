@@ -1,0 +1,25 @@
+<div class="navbar-fixed">
+    <nav class="blue-grey" role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="/" class="brand-logo">
+                    {{ SITENAME }}
+                </a>
+                {% if NAVBAR_LINKS %}
+                <ul class="right hide-on-med-and-down">
+                    {% for link in NAVBAR_LINKS %}
+                    <li><a href="{{ link['href']}}">{{ link['title']}}</a></li>
+                    {% endfor %}
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    {% for link in NAVBAR_LINKS %}
+                    <li><a href="{{ link['href']}}">{{ link['title']}}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">Menu</i></a>
+            </div>
+        </div>
+    </nav>
+</div>
