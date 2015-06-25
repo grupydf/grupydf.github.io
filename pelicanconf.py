@@ -50,3 +50,21 @@ NAVBAR_LINKS = (
         "href": "/equipe",
     },
 )
+
+SOCIAL_LINKS = (
+    {
+        "href": "https://twitter.com/grupydf",
+        "icon": "fa-twitter",
+        "text": "Twitter",
+    },
+    {
+        "href": "https://github.com/grupydf",
+        "icon": "fa-github",
+        "text": "GitHub",
+    },
+    {
+        "href": "https://groups.google.com/forum/#!forum/grupy-df",
+        "icon": "fa-envelope",
+        "text": "Mailing List",
+    },
+)
