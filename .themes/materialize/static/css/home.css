@@ -31,7 +31,7 @@
 }
 
 .icon-block p {
-    height: 130px;
+    min-height: 150px;
 }
 
 #home-container {
@@ -49,6 +49,9 @@
         height: 550px;
         font-size: 1em;
     }
+    .icon-block p {
+        min-height: 200px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -61,5 +64,8 @@
     .hero {
         height: 450px;
         font-size: 0.8em;
+    }
+    .icon-block p {
+        min-height: inherit;
     }
 }
