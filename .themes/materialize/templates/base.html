@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
         <link href="{{ SITEURL }}/theme/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="{{ SITEURL }}/theme/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="{{ SITEURL }}/theme/css/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         {% endblock %}
 
         <!-- Metadata -->
@@ -42,6 +43,19 @@
 
             <!-- Banner -->
             {% block banner %}
+            <div class="hero parallax-effect">
+                <div class="container">
+                    <div class="hero-content animated bounceInDown slow">
+                        {% block bannerimage %}
+                        <img src="{{ SITEURL }}/theme/img/logo.png" title="Grupy-DF" alt="Grupy-DF" class="logo"/>
+                        {% endblock %}
+                        {% block bannertext %}
+                        <h1>Seja bem vindo ao Grupy-DF!</h1>
+                        <p>Grupo de usuários da linguagem Python no Distrito Federal.</p>
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
             {% endblock %}
         </header>
         <main>
@@ -58,6 +72,7 @@
             {% block scripts %}
             <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script src="{{ SITEURL }}/theme/js/materialize.min.js"></script>
+            <script src="{{ SITEURL }}/theme/js/parallax.js"></script>
             <script src="{{ SITEURL }}/theme/js/init.js"></script>
             {% endblock %}
         </main>
