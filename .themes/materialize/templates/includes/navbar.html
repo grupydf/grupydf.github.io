@@ -8,13 +8,20 @@
                 {% if NAVBAR_LINKS %}
                 <ul class="right hide-on-med-and-down">
                     {% for link in NAVBAR_LINKS %}
-                    <li><a href="{{ link['href']}}">{{ link['title']}}</a></li>
+                    {% if page is defined %}
+                        {% set href = page.slug %}
+                    {% elif page_name is defined %}
+                        {% set href = page_name[:page_name.find('/')] %}
+                    {% else %}
+                        {% set href = None %}
+                    {% endif %}
+                    <li {% if href == link['href'] %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ link['href']}}">{{ link['title']}}</a></li>
                     {% endfor %}
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
                     {% for link in NAVBAR_LINKS %}
-                    <li><a href="{{ link['href']}}">{{ link['title']}}</a></li>
+                    <li><a href="{{ SITEURL }}/{{ link['href']}}">{{ link['title']}}</a></li>
                     {% endfor %}
                 </ul>
                 {% endif %}

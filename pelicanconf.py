@@ -43,11 +43,11 @@ DEFAULT_PAGINATION = False
 NAVBAR_LINKS = (
     {
         "title" : "Artigos",
-        "href": "/artigos",
+        "href": "artigos",
     },
     {
         "title" : "Equipe",
-        "href": "/equipe",
+        "href": "equipe",
     },
 )
 
