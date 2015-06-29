@@ -68,3 +68,75 @@ SOCIAL_LINKS = (
         "text": "Mailing List",
     },
 )
+
+EQUIPE = (
+    { "nome": "Biguá",
+        "email": "bigua.kun@gmail.com",
+        "twitter": "@pixeledbird",
+        "github": "bigua"
+    },
+    {
+        "nome": "Eduardo Henrique",
+        "email": "eduardohitek@gmail.com",
+        "twitter": "@eduardohitek",
+        "github": "eduardohitek"
+    },
+    {
+        "nome": "Gabriel Miranda",
+        "email": "gabrielm.car@gmail.com",
+        "twitter": "@gblmiranda",
+        "github": "gblmiranda"
+    },
+    {
+        "nome": "Humberto Rocha",
+        "email": "humrochagf@gmail.com",
+        "twitter": "@humrochagf",
+        "github": "humrochagf"
+    },
+    {
+        "nome": "Marco Rougeth",
+        "email": "marco@rougeth.com",
+        "twitter": "@marcorougeth",
+        "github": "rougeth"
+    },
+    {
+        "nome": "Pedro Henrique",
+        "email": "pedrohenriqueacruz@gmail.com",
+        "twitter": "@phinfonet",
+        "github": "phinfonet"
+    },
+    {
+        "nome": "Gilson Filho",
+        "email": "contatogilsonsbf@gmail.com",
+        "twitter": "@gilsonfilho",
+        "github": "gilsondev"
+    },
+    {
+        "nome": "Dirley Rodrigues",
+        "email": "N/A",
+        "twitter": "@dirleyrls",
+        "github": "ravishi"
+    },
+    {
+        "nome": "Wagner Santos",
+        "email": "wagnerjs.unb@gmail.com",
+        "twitter": "@wagnerjsantos",
+        "github": "wagnerjs"
+    },
+    {
+        "nome": "Israel P. Siqueira",
+        "email": "israelps@gmail.com",
+        "twitter": "@israelps",
+        "github": "israelps"
+    },
+    {
+            "nome": "Magnun Leno",
+            "email": "magnun.leno@gmail.com",
+            "twitter": "@mind_bend",
+            "github": "magnunleno",
+            "site": {
+                "nome": "Mind Bending",
+                "href": "http://mindbending.org",
+                }
+    }
+)

@@ -1,0 +1,14 @@
+.dev-card {
+    height: 261px !important;
+    background-size: 261px 261px !important;
+    background-position: 50% 50% !important;
+	background-repeat: no-repeat !important;
+}
+
+.card .card-action {
+    padding: 10px;
+}
+
+.card-image {
+    height: 235px !important;
+}
