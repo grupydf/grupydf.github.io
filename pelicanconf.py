@@ -46,8 +46,8 @@ NAVBAR_LINKS = (
         "href": "artigos",
     },
     {
-        "title" : "Equipe",
-        "href": "equipe",
+        "title" : "Membros",
+        "href": "membros",
     },
 )
 
@@ -113,7 +113,6 @@ EQUIPE = (
     },
     {
         "nome": "Dirley Rodrigues",
-        "email": "N/A",
         "twitter": "@dirleyrls",
         "github": "ravishi"
     },
@@ -130,13 +129,13 @@ EQUIPE = (
         "github": "israelps"
     },
     {
-            "nome": "Magnun Leno",
-            "email": "magnun.leno@gmail.com",
-            "twitter": "@mind_bend",
-            "github": "magnunleno",
-            "site": {
-                "nome": "Mind Bending",
-                "href": "http://mindbending.org",
-                }
+        "nome": "Magnun Leno",
+        "email": "magnun.leno@gmail.com",
+        "twitter": "@mind_bend",
+        "github": "magnunleno",
+        "site": {
+            "nome": "Mind Bending",
+            "href": "http://mindbending.org",
+            }
     }
 )
