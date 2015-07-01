@@ -20,8 +20,27 @@
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
+                    <li class="blue-grey lighten-1" id="nav-mobile-header">
+                        <div class="row center">
+                            <div class="col s12" id="nav-mobile-header-img">
+                                <a href="/" alt="Grupy-DF" title="Grupy-DF">
+                                    <img class="circle responsive-img valign z-depth-1" alt="Grupy-DF Logo" title="Grupy-DF" src="{{ SITEURL }}/theme/img/logo-inv.png">
+                                </a>
+                            </div>
+                            <div class="col s12" id="nav-mobile-header-text">
+                                <span class="blue-grey-text text-lighten-5">Grupy-DF</span>
+                            </div>
+                        </div>
+                    </li>
                     {% for link in NAVBAR_LINKS %}
-                    <li><a href="{{ SITEURL }}/{{ link['href']}}">{{ link['title']}}</a></li>
+                    {% if page is defined %}
+                        {% set href = page.slug %}
+                    {% elif page_name is defined %}
+                        {% set href = page_name[:page_name.find('/')] %}
+                    {% else %}
+                        {% set href = None %}
+                    {% endif %}
+                    <li {% if href == link['href'] %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ link['href']}}">{{ link['title']}}</a></li>
                     {% endfor %}
                 </ul>
                 {% endif %}
