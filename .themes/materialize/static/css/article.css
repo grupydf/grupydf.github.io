@@ -3,12 +3,12 @@
     height: 450px;
 }
 
-#article {
+.article-contents {
     border-radius: 2px;
     padding: 50px 56px;
 }
 
-#article p {
+.article-contents p {
     text-align: justify;
 }
 
@@ -24,7 +24,7 @@ main {
     width: 100%;
 }
 
-#article-meta {
+.article-meta {
     padding-top: 100px;
     padding-bottom: 50px;
 }

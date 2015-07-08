@@ -13,7 +13,7 @@
 <div class="row">
     {% for article in articles %}
     <div class="col s12 m12 l12">
-        <div class="card article">
+        <div class="card">
             <div class="card-image row blue-grey-text text-lighten-5 article-header" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{ GET_ARTICLE_IMAGE(article) }}')">
                 <div class="article-header-text valign-wrapper">
                     <div class="col s2 m2 l2 article-author-avatar center-align">
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-content">
+            <div class="card-content article-contents">
                 {{ article.summary }}
             </div>
             <div class="card-action">

@@ -18,7 +18,7 @@
 </div>
 
 <div class="row">
-    <div class="col s12 m12 l12 center-align" id="article-meta">
+    <div class="col s12 m12 l12 center-align article-meta">
         <h1 class="white-text">{{ article.title }}</h1>
         <div class="article-metadata grey-text">
             <span class="article-author-name">
@@ -38,8 +38,10 @@
     </div>
 </div>
 <div class="row">
-    <div class="col s12 m12 l12 white z-depth-2" id="article">
+    <div class="col s12 m12 l12 white z-depth-2">
+        <div class="article-contents">
         {{ article.content }}
+        </div>
     </div>
 </div>
 {% endblock %}

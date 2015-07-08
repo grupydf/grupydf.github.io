@@ -54,15 +54,15 @@
     font-size: 25px;
 }
 
-#article ul {
+.article-contents ul {
     padding-left: 35px;
 }
 
-#article li {
+.article-contents li {
     list-style: initial;
 }
 
-#article .figure.align-center img {
+.article-contents .figure.align-center img {
     height: auto;
     max-width: 100%;
 }
