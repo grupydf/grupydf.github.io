@@ -54,6 +54,12 @@
     font-size: 25px;
 }
 
+.article-contents {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
 .article-contents ul {
     padding-left: 35px;
 }
