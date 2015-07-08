@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}{{ article.title }} | {{ SITENAME }}{% endblock %}
+
 {% block styles %}
     {{ super() }}
     <link href="{{ SITEURL }}/theme/css/article.css" type="text/css" rel="stylesheet" media="screen,projection"/>
