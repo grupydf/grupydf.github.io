@@ -2,9 +2,60 @@
 
 {% block styles %}
     {{ super() }}
-    <link href="{{ SITEURL }}/theme/css/equipe.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{{ SITEURL }}/theme/css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 {% endblock %}
 
 {% block bannertext %}
-<h1>Artigos</h1>
+<h1>Blog do Grupy-DF</h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for article in articles %}
+    <div class="col s12 m12 l12">
+        <div class="card article">
+            <div class="card-image row blue-grey-text text-lighten-5 article-header" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{ GET_ARTICLE_IMAGE(article) }}')">
+                <div class="article-header-text valign-wrapper">
+                    <div class="col s2 m2 l2 article-author-avatar center-align">
+                        <a href="{{ SITEURL }}/{{ article.author.url }}">
+                            <img class="responsive-img circle" title="{{ article.author.name|escape }}"  alt="{{ article.author.name|escape }}" src="{{ GET_AVATAR(article.author.name) }}"/>
+                        </a>
+                    </div>
+                    <div class="article-title col s10 m10 l10">
+                        <h2>
+                            <a class="blue-grey-text text-lighten-5" href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|escape }}">{{ article.title }}</a>
+                        </h2>
+                        <div class="article-metadata">
+                            <span class="article-author-name">
+                                <a href="{{ SITEURL }}/{{ article.author.url }}" title="{{ article.author.name|escape }}" class="blue-grey-text text-lighten-5">
+                                    <i class="fa fa-user"></i> {{ article.author.name }}
+                                </a>
+                            </span>
+                            <span class="article-category">
+                                <a href="{{ SITEURL }}/{{ article.category.url }}" title="{{ article.category.name|escape }}" class="blue-grey-text text-lighten-5">
+                                    <i class="fa fa-folder"></i> {{ article.category.name }}
+                                </a>
+                            </span>
+                            <span class="article-datetime">
+                                <i class="fa fa-calendar"></i> <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                {{ article.summary }}
+            </div>
+            <div class="card-action">
+                <a href="{{ article.url }}">Continuar lendo...</a>
+            </div>
+        </div>
+    </div>
+    <div class="article-content">
+
+    </div>
+    <div class="article-more">
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
