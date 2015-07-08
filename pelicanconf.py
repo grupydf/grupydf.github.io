@@ -130,3 +130,39 @@ MEMBROS = OrderedDict((
             }
         })
 ))
+
+import os
+import random
+import functools
+from md5 import md5
+
+def GET_AVATAR(autor):
+    if autor in MEMBROS:
+        if 'github' in MEMBROS[autor]:
+            formatter = "https://avatars.githubusercontent.com/{}?size=250"
+            username = MEMBROS[autor]['github']
+        elif 'email' in MEMBROS[autor]:
+            formatter = "http://www.gravatar.com/avatar/{}?s=250"
+            username = md5(MEMBROS[autor]['email'].strip().lower()).hexdigest()
+        elif 'twitter' in MEMBROS[autor]:
+            formatter = "http://avatars.io/twitter/{}"
+            username = MEMBROS[autor]['twitter']
+            if username.startswith("@"):
+                username = username[1:]
+        else:
+            formatter = "/theme/img/{}"
+            username = "default_avatar.png"
+    else:
+        formatter = "/theme/img/{}"
+        username = "default_avatar.gif"
+    return formatter.format(username)
+
+def GET_ARTICLE_IMAGE(article):
+    if hasattr(article, 'image'):
+        return article.image
+
+    root = os.path.join(THEME, "static", "img", "banners")
+    base = "/theme/img/banners"
+    banners = map(functools.partial(os.path.join, base), os.walk(root).next()[2])
+    random.seed(article.date)
+    return random.choice(banners)
