@@ -11,6 +11,12 @@
 {% endblock %}
 
 {% block content %}
+<div style="bottom: 45px; right: 24px;" class="fixed-action-btn">
+    <a class="btn-floating btn-large" href="{{ GET_ARTICLE_AT_GITHUB(article) }}">
+        <i class="fa fa-code"></i> Código Fonte
+    </a>
+</div>
+
 <div class="row">
     <div class="col s12 m12 l12 center-align" id="article-meta">
         <h1 class="white-text">{{ article.title }}</h1>

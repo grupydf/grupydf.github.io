@@ -166,3 +166,8 @@ def GET_ARTICLE_IMAGE(article):
     banners = map(functools.partial(os.path.join, base), os.walk(root).next()[2])
     random.seed(article.date)
     return random.choice(banners)
+
+def GET_ARTICLE_AT_GITHUB(article):
+    base = os.path.relpath(article.source_path, os.getcwd())
+    url = "https://github.com/grupydf/grupydf.github.io/tree/pelican/{}"
+    return url.format(base)
