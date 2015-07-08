@@ -60,6 +60,10 @@
     hyphens: auto;
 }
 
+.article-contents p {
+    text-align: justify;
+}
+
 .article-contents ul {
     padding-left: 35px;
 }

@@ -8,10 +8,6 @@
     padding: 50px 56px;
 }
 
-.article-contents p {
-    text-align: justify;
-}
-
 .article-metadata span {
     margin-right: 25px;
     white-space: nowrap;
