@@ -54,6 +54,19 @@
     font-size: 25px;
 }
 
+#article ul {
+    padding-left: 35px;
+}
+
+#article li {
+    list-style: initial;
+}
+
+#article .figure.align-center img {
+    height: auto;
+    max-width: 100%;
+}
+
 @media (max-width: 992px) {
     .hero .logo {
         height: 200px;
