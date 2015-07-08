@@ -1,0 +1,29 @@
+.hero-article {
+    background-attachment: scroll;
+    height: 450px;
+}
+
+#article {
+    border-radius: 2px;
+    padding: 50px 56px;
+}
+
+#article p {
+    text-align: justify;
+}
+
+.article-metadata span {
+    margin-right: 25px;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#article-meta {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
