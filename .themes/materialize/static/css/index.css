@@ -26,6 +26,7 @@
 
 .article-metadata span {
     margin-right: 15px;
+    white-space: nowrap;
 }
 
 @media (max-width: 992px) {

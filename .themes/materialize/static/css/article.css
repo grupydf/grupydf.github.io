@@ -14,6 +14,7 @@
 
 .article-metadata span {
     margin-right: 25px;
+    white-space: nowrap;
 }
 
 main {
