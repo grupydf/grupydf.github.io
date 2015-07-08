@@ -77,6 +77,27 @@
     max-width: 100%;
 }
 
+.breadcrumb {
+    border-radius: 5px;
+    list-style: outside none none;
+    padding: 8px 15px;
+
+    /*
+    margin-bottom: 20px;
+    margin: 50px 56px;
+    */
+}
+
+.breadcrumb li {
+    display: inline-block;
+}
+
+.breadcrumb > li + li::before {
+    content: "/ ";
+    padding: 0 5px;
+    color: #bdbdbd;
+}
+
 @media (max-width: 992px) {
     .hero .logo {
         height: 200px;

@@ -9,10 +9,19 @@
 <h1>Blog do Grupy-DF</h1>
 {% endblock %}
 
+{% if CARD_SIZE is not defined %}
+    {% set CARD_SIZE = "s12 m12 l12" %}
+{% endif %}
+
+
 {% block content %}
 <div class="row">
+    {% if BREADCRUMB_ELEMENTS is not defined %}
+        {% set BREADCRUMB_ELEMENTS = [("Grupy-DF Blog", None)] %}
+    {% endif %}
+    {% include "includes/breadcrumbs.html" %}
     {% for article in articles %}
-    <div class="col s12 m12 l12">
+    <div class="col {{ CARD_SIZE }}">
         <div class="card">
             <div class="card-image row blue-grey-text text-lighten-5 article-header" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{ GET_ARTICLE_IMAGE(article) }}')">
                 <div class="article-header-text valign-wrapper">

@@ -40,19 +40,9 @@ main {
 }
 
 .breadcrumb {
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    list-style: outside none none;
+    background-color: #eeeeee;
+    margin-left: 56px;
+    margin-right: 56px;
+    margin-top: 50px;
     margin-bottom: 20px;
-    padding: 8px 15px;
-    margin: 50px 56px;
-}
-
-.breadcrumb li {
-    display: inline-block;
-}
-.breadcrumb > li + li::before {
-    content: "/ ";
-    padding: 0 5px;
-    color: #bdbdbd;
 }
