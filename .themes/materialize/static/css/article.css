@@ -3,8 +3,11 @@
     height: 450px;
 }
 
+.article {
+    border-radius: 4px;
+}
+
 .article-contents {
-    border-radius: 2px;
     padding-bottom: 50px;
     padding-left: 56px;
     padding-right: 56px;
