@@ -39,8 +39,26 @@
 </div>
 <div class="row">
     <div class="col s12 m12 l12 white z-depth-2">
+        <ul class="breadcrumb grey lighten-3">
+            <li>
+                <a class="grey-text text-darken-1" title="Grupy-DF Home" href="/"><i class="fa fa-home grey-text text-darken-2"></i></i></a>
+            </li>
+            <li>
+                <a class="grey-text text-darken-1" title="Grupy-DF Blog" href="/blog">Blog</a>
+            </li>
+            <li>
+            <a class="grey-text text-darken-1" title="Categoria '{{ article.category|escape }}'" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+            </li>
+            <li class="grey-text text-lighten-1">{{ article.title }}</li>
+        </ul>
         <div class="article-contents">
         {{ article.content }}
+        </div>
+        <div class="article-tags">
+            <span class="icon"><i title="Tags do artigo" class="fa fa-tags"></i></i></span>
+            {% for tag in article.tags %}
+            <a href="{{ SITEURL }}/{{ tag.url }}" title="Tag '{{ tag.name|escape }}'">{{ tag.name }}</a>{% if  not loop.last %},{% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
