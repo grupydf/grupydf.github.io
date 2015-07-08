@@ -11,12 +11,12 @@
 
 {% block content %}
 <div class="row">
-    {% for pessoa in EQUIPE %}
+    {% for nome, pessoa in MEMBROS.items() %}
     <!-- author -->
     <div class="col l3 m4 s6">
         <div class="card hoverable small dev-card" id="{{ pessoa['github'] }}" style="background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)) repeat scroll 0 0%, rgba(0, 0, 0, 0) url(https://avatars.githubusercontent.com/{{ pessoa['github'] }}?size=261) repeat scroll 0 0;">
             <div class="card-image">
-                <span class="card-title">{{ pessoa['nome'] }}</span>
+                <span class="card-title">{{ nome }}</span>
             </div>
             <div class="card-action">
             {% if 'github' in pessoa %}

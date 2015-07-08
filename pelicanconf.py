@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+from collections import OrderedDict
 
 AUTHOR = u'Grupy-DF'
 SITENAME = u'Grupy-DF'
@@ -69,67 +70,57 @@ SOCIAL_LINKS = (
     },
 )
 
-EQUIPE = (
-    { "nome": "Biguá",
+MEMBROS = OrderedDict((
+    ("Biguá", {
         "email": "bigua.kun@gmail.com",
         "twitter": "@pixeledbird",
         "github": "bigua"
-    },
-    {
-        "nome": "Eduardo Henrique",
+        }),
+    ("Eduardo Henrique", {
         "email": "eduardohitek@gmail.com",
         "twitter": "@eduardohitek",
         "github": "eduardohitek"
-    },
-    {
-        "nome": "Gabriel Miranda",
+        }),
+    ("Gabriel Miranda", {
         "email": "gabrielm.car@gmail.com",
         "twitter": "@gblmiranda",
         "github": "gblmiranda"
-    },
-    {
-        "nome": "Humberto Rocha",
+        }),
+    ("Humberto Rocha", {
         "email": "humrochagf@gmail.com",
         "twitter": "@humrochagf",
         "github": "humrochagf"
-    },
-    {
-        "nome": "Marco Rougeth",
+        }),
+    ("Marco Rougeth", {
         "email": "marco@rougeth.com",
         "twitter": "@marcorougeth",
         "github": "rougeth"
-    },
-    {
-        "nome": "Pedro Henrique",
+        }),
+    ("Pedro Henrique", {
         "email": "pedrohenriqueacruz@gmail.com",
         "twitter": "@phinfonet",
         "github": "phinfonet"
-    },
-    {
-        "nome": "Gilson Filho",
+        }),
+    ("Gilson Filho", {
         "email": "contatogilsonsbf@gmail.com",
         "twitter": "@gilsonfilho",
         "github": "gilsondev"
-    },
-    {
-        "nome": "Dirley Rodrigues",
+        }),
+    ("Dirley Rodrigues", {
         "twitter": "@dirleyrls",
         "github": "ravishi"
-    },
-    {
-        "nome": "Wagner Santos",
+        }),
+    ("Wagner Santos", {
         "email": "wagnerjs.unb@gmail.com",
         "twitter": "@wagnerjsantos",
         "github": "wagnerjs"
-    },
-    {
-        "nome": "Israel P. Siqueira",
+        }),
+    ("Israel P. Siqueira", {
         "email": "israelps@gmail.com",
         "twitter": "@israelps",
         "github": "israelps"
-    },
-    {
-        "nome": "Magnun Leno",
+        }),
+    ("Magnun Leno", {
         "email": "magnun.leno@gmail.com",
         "twitter": "@mind_bend",
         "github": "magnunleno",
@@ -137,5 +128,5 @@ EQUIPE = (
             "nome": "Mind Bending",
             "href": "http://mindbending.org",
             }
-    }
-)
+        })
+))
