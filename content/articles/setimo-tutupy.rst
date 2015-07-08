@@ -26,6 +26,6 @@ E aí, se arrependeu de não ter ido no 7º TutuPy? Então não perca o próximo
 
 .. raw:: html
 
-    <center><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></center>
+    <iframe height="400" width="100%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 .. _Tânia: https://twitter.com/taniaandrea_com
