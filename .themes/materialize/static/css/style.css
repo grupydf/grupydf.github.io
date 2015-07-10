@@ -94,6 +94,21 @@
     color: #bdbdbd;
 }
 
+.pill {
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 4px 7px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+    margin-top: 12px;
+}
+
 @media (max-width: 992px) {
     .hero .logo {
         height: 200px;
