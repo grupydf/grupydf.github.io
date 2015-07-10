@@ -35,11 +35,12 @@ main {
     margin-left: 56px;
     margin-right: 56px;
     padding-bottom: 35px;
-    padding-top: 35px;
+    padding-top: 15px;
+    text-align: justify;
 }
 
-.article-tags .icon {
-    padding-right: 15px;
+.article-tags span {
+    margin-top: 0px;
 }
 
 .breadcrumb {

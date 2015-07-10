@@ -51,7 +51,7 @@
         <div class="article-tags">
             <span class="icon"><i title="Tags do artigo" class="fa fa-tags"></i></i></span>
             {% for tag in article.tags %}
-            <a href="{{ SITEURL }}/{{ tag.url }}" title="Tag '{{ tag.name|escape }}'">{{ tag.name }}</a>{% if  not loop.last %},{% endif %}
+            <span class="pill blue-grey lighten-2"><a class="white-text" href="{{ SITEURL }}/{{ tag.url }}" title="Tag '{{ tag.name|escape }}'">{{ tag.name }}</a></span>
             {% endfor %}
         </div>
     </div>
