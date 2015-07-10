@@ -13,16 +13,25 @@ THEME = "./.themes/materialize"
 DEFAULT_LANG = u'pt'
 
 ARTICLE_URL = 'blog/{slug}'
-ARTICLE_SAVE_AS = 'blog/{slug}.html'
+ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
 
 PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
 
-CATEGORY_URL = 'blog/category/{slug}'
-CATEGORY_SAVE_AS = 'blog/category/{slug}.html'
+CATEGORIES_URL = 'blog/categorias'
+CATEGORIES_SAVE_AS = 'blog/categorias/index.html'
+CATEGORY_URL = 'blog/categorias/{slug}'
+CATEGORY_SAVE_AS = 'blog/categorias/{slug}/index.html'
 
-TAG_URL = 'blog/tag/{slug}'
-TAG_SAVE_AS = 'blog/tag/{slug}.html'
+TAG_URL = 'blog/tags/{slug}'
+TAG_SAVE_AS = 'blog/tags/{slug}/index.html'
+TAGS_URL = 'blog/tags'
+TAGS_SAVE_AS = 'blog/tags/index.html'
+
+AUTHOR_URL = 'blog/autores/{slug}'
+AUTHOR_SAVE_AS = 'blog/autores/{slug}/index.html'
+AUTHORS_URL = 'blog/autores'
+AUTHORS_SAVE_AS = 'blog/autores/index.html'
 
 INDEX_SAVE_AS = "blog/index.html"
 
