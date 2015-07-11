@@ -50,16 +50,31 @@ AUTHOR_FEED_RSS = None
 DEFAULT_PAGINATION = False
 
 # Navbar Links
-NAVBAR_LINKS = (
-    {
-        "title" : "Blog",
-        "href": "blog",
-    },
+NAVBAR_HOME_LINKS = [
     {
         "title" : "Membros",
         "href": "membros",
     },
-)
+    {
+        "title" : "Blog",
+        "href": "blog",
+    },
+]
+
+NAVBAR_BLOG_LINKS = NAVBAR_HOME_LINKS + [
+    {
+        "title" : "Categorias",
+        "href": "blog/categorias",
+    },
+    {
+        "title" : "Autores",
+        "href": "blog/autores",
+    },
+    {
+        "title" : "Tags",
+        "href": "blog/tags",
+    },
+]
 
 SOCIAL_LINKS = (
     {
