@@ -8,8 +8,8 @@
 
 Na última sexta-feira, também conhecido como dia 03 de Julho de 2015, a trupe do Grupy-DF se reuniu mais uma vez no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). Entre um papo descontraído e outro, rolou muito tutu, algumas cervejas e foram distribuídas camisetas e réguas da PythonBrasil[9]/PloneConf 2013.
 
-.. figure:: /images/tutupy/setimo-tutupy.jpg
-    :target: /images/tutupy/setimo-tutupy.jpg
+.. figure:: {filename}/images/tutupy/setimo-tutupy.jpg
+    :target: {filename}/images/tutupy/setimo-tutupy.jpg
     :alt: 7º Tutupy
     :align: center
 
