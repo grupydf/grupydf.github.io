@@ -49,6 +49,12 @@ AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = False
 
+PLUGIN_PATHS = ['./.plugins']
+PLUGINS = [
+        'better_figures_and_images',
+        ]
+RESPONSIVE_IMAGES = True
+
 # Navbar Links
 NAVBAR_HOME_LINKS = [
     {
