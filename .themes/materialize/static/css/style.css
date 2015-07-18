@@ -73,6 +73,12 @@
     list-style: initial;
 }
 
+.article-contents .figure.align-center {
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 .article-contents .figure.align-center img {
     height: auto;
     max-width: 100%;
