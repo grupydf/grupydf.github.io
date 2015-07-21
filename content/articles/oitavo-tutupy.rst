@@ -6,7 +6,7 @@
 :image: /images/tutupy/oitavo-tutupy.jpg
 :category: Eventos
 
-E hoje, dia 17 de Julho de 2015, os membros do Grupy-DF mais uma vez se reuniram no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). O "*motto*" desse TutuPy foi, "O que acontece no TutuPy, fica no TutuPy". Entre frases que não podem ser repetidas e citações àqueles que não devem ser nomeados, rolou muito tutu, algumas cervejas, uma distribuição de adesivos e livros adquiridos (ambos) em uma compra coletiva e uma longa discussão sobre os principais pontos do último *sprint* que realizamos.
+E hoje, dia 17 de Julho de 2015, os membros do Grupy-DF mais uma vez se reuniram no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). Entre uma conversa e outra, rolou muito tutu, algumas cervejas, distribuição de adesivos e livros adquiridos (ambos) em uma compra coletiva e uma longa discussão sobre os principais pontos do último *sprint* que realizamos.
 
 Ah, e finalmente bateram uma foto do dito cujo!
 
@@ -19,12 +19,12 @@ Segue abaixo a listagem de tópicos discutidos:
 
 * Repercussão do Sprint;
 * Possibilidade de unificar a base de dados das conferências;
-* Definição de que o Sprint pode agilizar vários pontos da APyBR;
+* Definição de que o Sprint pode agilizar vários pontos da APYB;
 * Como a comunidade pode lidar com novos integrantes;
 * Como funciona a diretoria da ApyBR e a votação;
 * Outros pontos da Python Brasil, diretoria de cada conferência e assuntos das listas;
 * Grupys e PUGs, formas de organização e de trabalhar as comunidades aproveitando as skills de cada um;
-* Logística de transporte e hospedam pra PythonBrasil[11], incluindo a possibilidade de alugar algum lugar, negociando um pacote fechado para ficar mais barato para a galera do Grupy-DF (e de outros estados);
+* Logística de transporte e hospedagem pra PythonBrasil[11], incluindo a possibilidade de alugar algum lugar, negociando um pacote fechado para ficar mais barato para a galera do Grupy-DF (e de outros estados);
 
 .. figure:: {filename}/images/tutupy/oitavo-tutupy.jpg
     :target: {filename}/images/tutupy/oitavo-tutupy.jpg
