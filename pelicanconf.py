@@ -58,6 +58,10 @@ RESPONSIVE_IMAGES = True
 # Navbar Links
 NAVBAR_HOME_LINKS = [
     {
+        "title" : "Comunidade",
+        "href" : "comunidade",
+    },
+    {
         "title" : "Membros",
         "href": "membros",
     },
@@ -89,9 +93,19 @@ SOCIAL_LINKS = (
         "text": "Twitter",
     },
     {
+        "href": "https://www.facebook.com/groups/grupydf",
+        "icon": "fa-facebook",
+        "text": "Facebook",
+    },
+    {
         "href": "https://github.com/grupydf",
         "icon": "fa-github",
         "text": "GitHub",
+    },
+    {
+        "href": "http://grupydf.slack.com",
+        "icon": "fa-slack",
+        "text": "Slack",
     },
     {
         "href": "https://groups.google.com/forum/#!forum/grupy-df",
