@@ -115,6 +115,14 @@
     margin-top: 12px;
 }
 
+.highlight {
+    border-radius: 4px;
+}
+
+.highlight > pre {
+    padding: 9px;
+}
+
 @media (max-width: 992px) {
     .hero .logo {
         height: 200px;

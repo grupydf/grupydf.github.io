@@ -54,6 +54,7 @@ PLUGINS = [
         'better_figures_and_images',
         ]
 RESPONSIVE_IMAGES = True
+PYGMENTS_STYLE= "perldoc"
 
 # Navbar Links
 NAVBAR_HOME_LINKS = [
