@@ -2,6 +2,7 @@
 
 {% block styles %}
   {{ super() }}
+  <link href="{{ SITEURL }}/theme/css/comunidade.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 {% endblock %}
 
 {% block bannertext %}
@@ -14,7 +15,7 @@
 
 {% block content %}
   <div class="row center-align">
-    <div class="col s12 m4">
+    <div class="col s12 m4 icon-block">
       <h5>Mídias sociais</h5>
 
       <p class="light">
@@ -22,12 +23,13 @@
         novidades e postagens do nosso blog.
       </p>
 
-      <a href="https://twitter.com/grupydf"><i class="fa fa-twitter fa-2x"></i> Twitter</a>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://www.facebook.com/groups/grupydf"><i class="fa fa-facebook fa-2x"></i> Facebook</a>
+      <div class="center">
+          <a class="waves-effect waves-light btn" href="https://twitter.com/grupydf"><i class="fa fa-twitter fa-2x"></i> Twitter</a>
+          <a class="waves-effect waves-light btn" href="https://www.facebook.com/groups/grupydf"><i class="fa fa-facebook fa-2x"></i> Facebook</a>
+      </div>
     </div>
 
-    <div class="col s12 m4">
+    <div class="col s12 m4 icon-block">
       <h5>Slack</h5>
 
       <p class="light">
@@ -36,10 +38,12 @@
         o convite.
       </p>
 
-      <a href="https://grupydf.herokuapp.com"><i class="fa fa-slack fa-2x"></i> Slack</a>
+      <div class="center">
+          <a class="waves-effect waves-light btn" href="https://grupydf.herokuapp.com"><i class="fa fa-slack fa-2x"></i> Slack</a>
+      </div>
     </div>
 
-    <div class="col s12 m4">
+    <div class="col s12 m4 icon-block">
       <h5>Lista de emails</h5>
 
       <p class="light">
@@ -47,7 +51,9 @@
         do Grupy-DF no google groups.
       </p>
 
-      <a href="https://groups.google.com/forum/#!forum/grupy-df"><i class="fa fa-envelope fa-2x"></i> Lista</a>
+      <div class="center">
+          <a class="waves-effect waves-light btn" href="https://groups.google.com/forum/#!forum/grupy-df"><i class="fa fa-envelope fa-2x"></i> Lista</a>
+      </div>
     </div>
   </div>
 {% endblock %}
