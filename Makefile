@@ -107,4 +107,8 @@ github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
 
+travis: publish
+	ghp-import  -m "Updated podcast site." -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
+	@git push -fq https://${GH_TOKEN}@github.com/grupydf/grupydf.github.io.git master > /dev/null
+
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
