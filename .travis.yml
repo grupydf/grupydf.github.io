@@ -5,7 +5,11 @@ branches:
 install:
 - pip install -r requirements.txt
 script:
-- make github
+- make travis
+notifications:
+  email:
+    on_success: always
+    on_failure: always
 env:
   global:
     secure: w0tmfVqEYbROA1x7Ug3EDpL9A+QKauseCx8nQzBacBbyICLs9qga3apKCAzjkshA7ZMm+bnqnZSvXY7zqpQHFvRhQ+XN7rBrie1G5++7pdw99m81jHqmgl+PIWtKQWsJzMd+ixNq6RTw+DYrgCW3cghArO4GmhnHU8AzOuf5GR6+YdYiSgTgEGkvm3hnVqtul/1qjE9QeNbYd7lj8aCkrMKCn7ofrkGD3u63RnlasQaPoAPoHgI2M9W7hCs5H+7QgwJaHTTzh4dOzimwSvkfIV0qIyEkSTaut6N0r/46rAqwIonU9qcH4q+VSVn2Qr02TDrmLameH7yRNzB8Yq8oE9B4ybTnz++q88FnALcIB2rFivPi1ok3wh878cmLMhgsSwRJX9sDvwMYdEwf3SJHOpVnAo1LRc3QXHhetJaqNV6dwwKlIKWVWOyD+rba+IoJFzxw2hE1FObXepVANd6f+yLi2DZyzTkdCAYojf9OnPDfZIL86mvqsOdQhCwpMAdp1ITqJTC3g6RLPXuhAWJYQqZU6VTAZSoRfLPAnBm8mp6YeFF3UHSbV4EoaYzjpAFBLDl4AtbZxqZhtoaqmIb9EVd7ZSUgnIJEKbcRFcRNHE6Fu5MjNE5HsQOJg4DgA72lZTkfx1CKTVob0g7BolYdT3CAcZxXnft2xoXLhD92bss=
