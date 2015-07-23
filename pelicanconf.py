@@ -52,9 +52,25 @@ DEFAULT_PAGINATION = False
 PLUGIN_PATHS = ['./.plugins']
 PLUGINS = [
         'better_figures_and_images',
+        'sitemap',
         ]
+
 RESPONSIVE_IMAGES = True
 PYGMENTS_STYLE= "perldoc"
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.8,
+        'indexes': 0.2,
+        'pages': 0.7
+    },
+    'changefreqs': {
+        'articles': 'daily',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    },
+}
+
 
 # Navbar Links
 NAVBAR_HOME_LINKS = [
