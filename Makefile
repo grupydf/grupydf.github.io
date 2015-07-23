@@ -111,4 +111,8 @@ travis: publish
 	ghp-import  -m "Updated podcast site." -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	@git push -fq https://${GH_TOKEN}@github.com/grupydf/grupydf.github.io.git master > /dev/null
 
+ping:
+	curl -Is http://www.google.com/webmasters/tools/ping?sitemap=http://grupydf.github.io/sitemap.xml | grep "200 OK" || echo "Erro pinging Google"
+	curl -Is http://www.bing.com/webmaster/ping.aspx?siteMap=http://grupydf.github.io/sitemap.xml | grep "200 OK" || echo "Erro pinging Bing"
+
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
