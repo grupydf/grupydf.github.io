@@ -56,4 +56,8 @@
         </div>
     </div>
 </div>
+
+{% if article.comments != "closed" %}
+    {% include "includes/comments.html" %}
+{% endif %}
 {% endblock %}

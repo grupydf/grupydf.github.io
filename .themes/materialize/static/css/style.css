@@ -123,6 +123,14 @@
     padding: 9px;
 }
 
+#comments > div {
+    border-radius: 4px;
+    padding-top: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+}
+
 @media (max-width: 992px) {
     .hero .logo {
         height: 200px;
