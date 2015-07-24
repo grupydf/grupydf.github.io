@@ -2,6 +2,8 @@ language: python
 branches:
   only:
   - pelican
+before_install:
+  - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-pt
 install:
 - pip install -r requirements.txt
 script:
