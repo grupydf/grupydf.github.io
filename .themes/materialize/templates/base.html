@@ -13,6 +13,12 @@
 
         {# TODO: Implement this #}
         {#% include "includes/feeds.html" %#}
+        {% if FEED_ALL_ATOM %}
+            <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed"/>
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+            <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed"/>
+        {% endif %}
 
         <!-- CSS  -->
         {% block styles %}

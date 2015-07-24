@@ -41,11 +41,14 @@ INDEX_SAVE_AS = "blog/index.html"
 #)
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
+FEED_ALL_ATOM = 'blog/feeds.atom'
+FEED_ALL_RSS = 'blog/feeds.rss'
 TRANSLATION_FEED_ATOM = None
+TRANSLATION_FEED_RSS = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+CATEGORY_FEED_ATOM = None
+CATEGORY_FEED_RSS = None
 
 DEFAULT_PAGINATION = False
 
