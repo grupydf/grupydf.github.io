@@ -40,9 +40,6 @@ INDEX_SAVE_AS = "blog/index.html"
 #    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 #)
 
-# Feed generation is usually not desired when developing
-FEED_ALL_ATOM = 'blog/feeds.atom'
-FEED_ALL_RSS = 'blog/feeds.rss'
 TRANSLATION_FEED_ATOM = None
 TRANSLATION_FEED_RSS = None
 AUTHOR_FEED_ATOM = None
