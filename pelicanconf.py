@@ -35,10 +35,10 @@ AUTHORS_SAVE_AS = 'blog/autores/index.html'
 
 INDEX_SAVE_AS = "blog/index.html"
 
-#PAGINATION_PATTERNS = (
-#    (1, '{base_name}/', '{base_name}/index.html'),
-#    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
-#)
+PAGINATION_PATTERNS = (
+    (1, '{base_name}/', '{base_name}/index.html'),
+    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
+)
 
 TRANSLATION_FEED_ATOM = None
 TRANSLATION_FEED_RSS = None

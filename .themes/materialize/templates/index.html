@@ -34,7 +34,7 @@
         {% set BREADCRUMB_ELEMENTS = [("Grupy-DF Blog", None)] %}
     {% endif %}
     {% include "includes/breadcrumbs.html" %}
-    {% for article in articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
     <div class="col {{ CARD_SIZE }}">
         <div class="card">
             <div class="card-image row blue-grey-text text-lighten-5 article-header" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('{{ GET_ARTICLE_IMAGE(article) }}')">
@@ -81,5 +81,31 @@
         </div>
     </div>
     {% endfor %}
+    <div class="col s12" id="pagination">
+        <div id="pagination-card" class="col s12 white z-depth-1 valign-wrapper">
+            <ul class="pagination valign">
+                {% if articles_page.has_previous() %}
+                    {% set num = articles_page.previous_page_number() %}
+                    <li class=""><a href="{{ SITEURL }}/{{ articles_previous_page.url }}"><i class="material-icons">chevron_left</i></a></li>
+                {% else %}
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_left</i></a></li>
+                {% endif %}
+
+                {% for num in articles_paginator.page_range %}
+                    {% if num == articles_page.number %}
+                        <li class="active"><a href="">{{ num }}</a></li>
+                    {% else %}
+                        <li class="waves-effect"><a href="{{ SITEURL }}/{{ articles_paginator.page(num).url }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if articles_page.has_next() %}
+                    <li class="waves-effect"><a href="{{ SITEURL }}/{{ articles_next_page.url }}"><i class="material-icons">chevron_right</i></a></li>
+                {% else %}
+                    <li class="disabled"><a href=""><i class="material-icons">chevron_right</i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
