@@ -9,8 +9,8 @@
 
 .article-contents {
     padding-bottom: 50px;
-    padding-left: 56px;
-    padding-right: 56px;
+    padding-left: 4%;
+    padding-right: 4%;
 }
 
 .article-metadata span {
@@ -32,8 +32,8 @@ main {
 
 .article-tags {
     border-top: 1px solid rgba(160, 160, 160, 0.4);
-    margin-left: 56px;
-    margin-right: 56px;
+    margin-left: 4%;
+    margin-right: 4%;
     padding-bottom: 35px;
     padding-top: 15px;
     text-align: justify;
@@ -45,8 +45,8 @@ main {
 
 .breadcrumb {
     background-color: #eeeeee;
-    margin-left: 56px;
-    margin-right: 56px;
+    margin-left: 4%;
+    margin-right: 4%;
     margin-top: 50px;
     margin-bottom: 20px;
 }
