@@ -14,7 +14,7 @@ SITEURL = ''
 
 TIMEZONE = 'America/Sao_Paulo'
 THEME = 'themes/malt'
-MALT_BASE_COLOR = 'blue-grey'
+MALT_BASE_COLOR = 'green'
 
 SITE_LOGO = 'images/logo/logo.png'
 SITE_LOGO_MOBILE = 'images/logo/logo-inv.png'
