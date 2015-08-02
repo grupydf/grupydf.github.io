@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import os
+import sys
+
+sys.path.append(os.curdir)
+
 from collections import OrderedDict
 
 AUTHOR = u'Grupy-DF'
@@ -8,7 +13,19 @@ SITENAME = u'Grupy-DF'
 SITEURL = ''
 
 TIMEZONE = 'America/Sao_Paulo'
-THEME = "./.themes/materialize"
+THEME = 'themes/malt'
+MALT_BASE_COLOR = 'blue-grey'
+
+SITE_LOGO = 'images/logo/logo.png'
+SITE_LOGO_MOBILE = 'images/logo/logo-inv.png'
+
+WELCOME_TITLE = 'Seja bem vindo ao {}!'.format(SITENAME)
+WELCOME_TEXT = 'Grupo de usuários da linguagem Python no Distrito Federal.'
+SITE_BACKGROUND_IMAGE = 'images/banners/ponte-jk.jpg'
+FOOTER_ABOUT = '''O Grupy-DF é uma comunidade de usuários (profissionais e
+                  amadores) da linguagem Python, onde prezamos pela troca de
+                  conhecimento, respeito mútuo e diversidade (tanto de opinião
+                  quanto de tecnologias).'''
 
 DEFAULT_LANG = u'pt'
 
@@ -51,12 +68,12 @@ DEFAULT_PAGINATION = False
 
 PLUGIN_PATHS = ['./.plugins']
 PLUGINS = [
-        'better_figures_and_images',
-        'sitemap',
-        ]
+    'better_figures_and_images',
+    'sitemap',
+]
 
 RESPONSIVE_IMAGES = True
-PYGMENTS_STYLE= "perldoc"
+PYGMENTS_STYLE = "perldoc"
 SITEMAP = {
     'format': 'xml',
     'priorities': {
@@ -75,30 +92,30 @@ SITEMAP = {
 # Navbar Links
 NAVBAR_HOME_LINKS = [
     {
-        "title" : "Comunidade",
-        "href" : "comunidade",
+        "title": "Comunidade",
+        "href": "comunidade",
     },
     {
-        "title" : "Membros",
+        "title": "Membros",
         "href": "membros",
     },
     {
-        "title" : "Blog",
+        "title": "Blog",
         "href": "blog",
     },
 ]
 
 NAVBAR_BLOG_LINKS = NAVBAR_HOME_LINKS + [
     {
-        "title" : "Categorias",
+        "title": "Categorias",
         "href": "blog/categorias",
     },
     {
-        "title" : "Autores",
+        "title": "Autores",
         "href": "blog/autores",
     },
     {
-        "title" : "Tags",
+        "title": "Tags",
         "href": "blog/tags",
     },
 ]
@@ -192,43 +209,53 @@ MEMBROS = OrderedDict((
         })
 ))
 
-import os
-import random
-import functools
-from md5 import md5
+MALT_HOME = [
+    {
+        "color": "blue-grey lighten-5",
+        "title": "O que Fazemos?",
+        "items": [
+            {
+                "title": "Comunidade",
+                "icon": "fa-comments",
+                "text": "A comunidade do GrupyDF se comunica através de mailing " +\
+                    "lists, grupo no telegram e no slack, mas frequentemente são " +\
+                    "promovidos encontros diversos, como almoços, " +\
+                    "<em>coding dojos</em> e palestras. ",
+                "buttons": [
+                    {
+                        "text": "Saiba Mais",
+                        "href": "comunidade",
+                    },
+                ],
+            },
+            {
+                "title": "Membros",
+                "icon": "fa-users",
+                "text": "A comunidade do GrupyDF, apesar de extensa possui alguns " +\
+                        "colaboradores principais, responsáveis por organizar " +\
+                        "eventos, manter a comunicação ativa, divulgar eventos, " +\
+                        "redes sociais e etc. ",
+                "buttons": [
+                    {
+                        "text": "Conheça",
+                        "href": "membros",
+                    },
+                ],
+            },
+            {
+                "title": "Projetos",
+                "icon": "fa-briefcase",
+                "text": " Atualmente o GrupyDF possui poucos projetos em andamento:" +\
+                        "Traduções do Django-docs e Python on Campus.",
+                "buttons": [
+                    {
+                        "text": "Mais detalhes",
+                        "href": "projetos",
+                    },
+                ],
+            },
+        ]
+    },
+]
 
-def GET_AVATAR(autor):
-    if autor in MEMBROS:
-        if 'github' in MEMBROS[autor]:
-            formatter = "https://avatars.githubusercontent.com/{}?size=250"
-            username = MEMBROS[autor]['github']
-        elif 'email' in MEMBROS[autor]:
-            formatter = "http://www.gravatar.com/avatar/{}?s=250"
-            username = md5(MEMBROS[autor]['email'].strip().lower()).hexdigest()
-        elif 'twitter' in MEMBROS[autor]:
-            formatter = "http://avatars.io/twitter/{}"
-            username = MEMBROS[autor]['twitter']
-            if username.startswith("@"):
-                username = username[1:]
-        else:
-            formatter = "/theme/img/{}"
-            username = "default_avatar.png"
-    else:
-        formatter = "/theme/img/{}"
-        username = "default_avatar.gif"
-    return formatter.format(username)
-
-def GET_ARTICLE_IMAGE(article):
-    if hasattr(article, 'image'):
-        return article.image
-
-    root = os.path.join(THEME, "static", "img", "banners")
-    base = "/theme/img/banners"
-    banners = map(functools.partial(os.path.join, base), os.walk(root).next()[2])
-    random.seed(article.date)
-    return random.choice(banners)
-
-def GET_ARTICLE_AT_GITHUB(article):
-    base = os.path.relpath(article.source_path, os.getcwd())
-    url = "https://github.com/grupydf/grupydf.github.io/tree/pelican/{}"
-    return url.format(base)
+from themes.malt.functions import *
