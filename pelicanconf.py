@@ -12,6 +12,13 @@ AUTHOR = u'Grupy-DF'
 SITENAME = u'Grupy-DF'
 SITEURL = ''
 
+META_DESCRIPTION = '''O Grupy-DF é uma comunidade de usuários (profissionais e
+                      amadores) da linguagem Python, onde prezamos pela troca de
+                      conhecimento, respeito mútuo e diversidade (tanto de opinião
+                      quanto de tecnologias).'''
+
+META_KEYWORDS = ['grupy-df', 'python', 'brasilia', 'desenvolvimento']
+
 TIMEZONE = 'America/Sao_Paulo'
 THEME = 'themes/malt'
 MALT_BASE_COLOR = 'green'
