@@ -26,6 +26,9 @@ MALT_BASE_COLOR = 'green'
 SITE_LOGO = 'images/logo/logo.png'
 SITE_LOGO_MOBILE = 'images/logo/logo-inv.png'
 
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+
 WELCOME_TITLE = 'Seja bem vindo ao {}!'.format(SITENAME)
 WELCOME_TEXT = 'Grupo de usuários da linguagem Python no Distrito Federal.'
 SITE_BACKGROUND_IMAGE = 'images/banners/ponte-jk.jpg'
