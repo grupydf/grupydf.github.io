@@ -19,6 +19,7 @@ Neste tutupy foram abordados os seguintes assuntos:
 
 * "*Conteinerização*" para o site de associados da APyB;
 * Dificuldades na organização de eventos;
+* Batalhas de robôs (`EUA vs Japão`_);
 * Compras de adesivo;
 * Criação de adesivos para o GrupyDF no `StickerMule`_;
 * Alimentação vegetariana e vegana (abraço `Bruno Rocha`_!);
@@ -42,5 +43,6 @@ Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...
 
     <iframe height="400" width="100%" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
+.. _EUA vs Japão: http://m.tecmundo.com.br/robotica/84976-batalha-entre-mega-robos-realidade.htm
 .. _Bruno Rocha: http://brunorocha.org/
 .. _StickerMule: https://www.stickermule.com/
