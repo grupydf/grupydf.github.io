@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupy-DF</title><link href="http://grupydf.github.io/" rel="alternate"></link><link href="http://grupydf.github.io/blog/feeds.atom" rel="self"></link><id>http://grupydf.github.io/</id><updated>2015-08-21T18:14:00-03:00</updated><entry><title>10º TutuPy</title><link href="http://grupydf.github.io/blog/10o-tutupy" rel="alternate"></link><updated>2015-08-21T18:14:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-08-21:blog/10o-tutupy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Novamente, nesta sexta-feira, dia 21 de Agosto de 2015, os membros do Grupy-DF realizaram o encontro quinzenal da comunidade. Em um número mais acanhado (apenas 9 integrantes), tivemos uma longa espera pelas picanhas e tutus, tempo este que nos permitiu constatar a queda na qualidade do nosso "ponto de encontro" e levantar possíveis alternativas.&lt;/p&gt;
+&lt;p&gt;A parte boa é que saudamos o criado da linguagem tomando uma cerveja de qualidade, compatriota de Guido van Rossum.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 442px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/heineken.jpg"&gt;&lt;img alt="Cerveja Heineken" src="http://grupydf.github.io/images/tutupy/heineken.jpg" style="width: 442px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Neste tutupy foram abordados os seguintes assuntos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;"&lt;em&gt;Conteinerização&lt;/em&gt;" para o site de associados da APyB;&lt;/li&gt;
+&lt;li&gt;Dificuldades na organização de eventos;&lt;/li&gt;
+&lt;li&gt;Batalhas de robôs (&lt;a class="reference external" href="http://m.tecmundo.com.br/robotica/84976-batalha-entre-mega-robos-realidade.htm"&gt;EUA vs Japão&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;Compras de adesivo;&lt;/li&gt;
+&lt;li&gt;Criação de adesivos para o GrupyDF no &lt;a class="reference external" href="https://www.stickermule.com/"&gt;StickerMule&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Alimentação vegetariana e vegana (abraço &lt;a class="reference external" href="http://brunorocha.org/"&gt;Bruno Rocha&lt;/a&gt;!);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="figure align-center" style="width: 1280px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/decimo-tutupy.jpg"&gt;&lt;img alt="10º Tutupy" src="http://grupydf.github.io/images/tutupy/decimo-tutupy.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;Membros presentes no 10º TutuPy&lt;/p&gt;
+&lt;div class="legend"&gt;
+Da esquerda pra direita, Starlone Passos, Marcio Mazza, Mariana, Pedro Henrique, Magnun Leno, Sergio Oliveira, Gilson Filho, Gabriel Miranda e Tania Andrea.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="onde"&gt;
+&lt;h2&gt;Onde?&lt;/h2&gt;
+&lt;p&gt;Nosso encontro quinzenal ocorre no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul).
+Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" style="border:0" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="encontro"></category><category term="evento"></category><category term="tutu"></category><category term="restaurante"></category><category term="marambaia"></category></entry><entry><title>1º Sprint do Grupy-DF</title><link href="http://grupydf.github.io/blog/1o-sprint-do-grupy-df" rel="alternate"></link><updated>2015-07-23T03:19:00-03:00</updated><author><name>Humberto Rocha</name></author><id>tag:grupydf.github.io,2015-07-23:blog/1o-sprint-do-grupy-df</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;No dia 11 de julho de 2015, nos reunimos na casa dos pais da &lt;a class="reference external" href="https://twitter.com/taniaandrea_com"&gt;Tânia&lt;/a&gt; para realizar
+o Primeiro Sprint do Grupy-DF. Após uma bela dose de café recapitulamos os temas
+propostos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Contribuir com o site das &lt;a class="reference external" href="https://github.com/pyladies-brazil/br-pyladies/issues"&gt;PyLadies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Colocar no ar os sites de evento das PythonBrasil anteriores&lt;/li&gt;
+&lt;li&gt;Ajudar no desenvolvimento das coisas pendentes da PythonBrasil[11]&lt;/li&gt;
+&lt;li&gt;Contribuir com a tradução dos &lt;a class="reference external" href="https://www.transifex.com/projects/p/django-docs/"&gt;docs do Django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Após esta breve recapitulação entramos em contato com &lt;a class="reference external" href="https://twitter.com/FilipeCifali"&gt;Filipe&lt;/a&gt; para ficar a par
+da organização e acessos aos servidores da PythonBrasil.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 1116px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/sprint/2015-07-11-hangout-filipe.jpg"&gt;&lt;img alt="Hangout com o Filipe" src="http://grupydf.github.io/images/sprint/2015-07-11-hangout-filipe.jpg" style="width: 1116px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Paralelo ao hangout com o Filipe, descobrimos que o site do PyLadies está em Ruby,
+o que nos levou, após muita pesquisa, ao aprendizado de como preparar um ambiente
+de desenvolvimento para futuras contribuições para o projeto.&lt;/p&gt;
+&lt;p&gt;Seguindo em frente abrimos uma chamada no Skype com o &lt;a class="reference external" href="https://twitter.com/rudaporto"&gt;Rudá&lt;/a&gt; na qual, depois de muito
+suor, aprendizado e compilação manual de versões pré-históricas do python, conseguimos
+colocar no ar praticamente todos os sites Plone que estavam fora do ar.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 670px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/sprint/2015-07-11-skype-ruda.jpg"&gt;&lt;img alt="Skype com o Rudá" src="http://grupydf.github.io/images/sprint/2015-07-11-skype-ruda.jpg" style="width: 670px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Segue abaixo a lista dos sites funcionando até o momento desta publicação e seus
+respectivos links provisórios:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;PythonBrasil[7] - &lt;a class="reference external" href="http://plone.python.org.br:8045/pythonbrasil"&gt;http://plone.python.org.br:8045/pythonbrasil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Associação Python Brasil - &lt;a class="reference external" href="http://plone.python.org.br:8045/fundacao"&gt;http://plone.python.org.br:8045/fundacao&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PythonBrasil[9] OLD - &lt;a class="reference external" href="http://plone.python.org.br:8045/pythonbrasil2013"&gt;http://plone.python.org.br:8045/pythonbrasil2013&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PythonBrasil[9] ATUALIZADA - pythonbrasil - &lt;a class="reference external" href="http://plone.python.org.br:8080/Plone/pythonbrasil"&gt;http://plone.python.org.br:8080/Plone/pythonbrasil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PloneConf 2013 ATUALIZADA - ploneconf - &lt;a class="reference external" href="http://plone.python.org.br:8080/Plone/ploneconf"&gt;http://plone.python.org.br:8080/Plone/ploneconf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PythonBrasil (da 1 a 6) - &lt;a class="reference external" href="http://plone.python.org.br:8120/pycon"&gt;http://plone.python.org.br:8120/pycon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Além disso outros assuntos como o nome da conta do youtube e alguns problemas
+da wiki foram levantados.&lt;/p&gt;
+&lt;p&gt;Se você curtiu e quer participar do próximo sprint ou evento do Grupy-DF acompanhe nossos
+&lt;a class="reference external" href="/comunidade"&gt;canais de comunicação&lt;/a&gt; e ajude a fortalecer esta comunidade.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="sprint"></category><category term="encontro"></category><category term="evento"></category></entry><entry><title>Como Publicar No Blog Do Grupy-Df</title><link href="http://grupydf.github.io/blog/como-publicar-no-blog-do-grupy-df" rel="alternate"></link><updated>2015-07-22T14:57:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-22:blog/como-publicar-no-blog-do-grupy-df</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal! Recentemente &lt;a class="reference external" href="/blog/bem-vindos-ao-blog-do-grupy-df/"&gt;inauguramos o site do Grupy-DF&lt;/a&gt; e alguns membros do grupo estão começando a produzir conteúdos. Como eu fui o "maluco" a propor essa plataforma, achei que seria justo escrever um tutorial para aqueles que desconhecem um pouco o &lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;. Então preparem seus cérebros pois vamos aprender deste &lt;em&gt;virtual env&lt;/em&gt; até versionamento de código!&lt;/p&gt;
+&lt;div class="section" id="o-que-e-o-pelican"&gt;
+&lt;h2&gt;O Que é o Pelican&lt;/h2&gt;
+&lt;p&gt;Primeiramente o Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), isto é, nosso site não possui nenhum servidor de aplicação (&lt;em&gt;backend&lt;/em&gt;) em execução, ele é composto apenas de arquivos HTML, CSS e JavaScript. Mas por que isso é vantajoso? Eu já &lt;a class="reference external" href="http://mindbending.org/pt/adeus-wordpress"&gt;escrevi sobre isso no meu site&lt;/a&gt;, mas em resumo ganhamos em performance, hospedagem, segurança e versionamento. Como este site receberá publicações de várias pessoas, resolvemos usar as &lt;em&gt;Issues&lt;/em&gt; do GitHub para controlar os artigos que estão em processo de descrita (foi criada uma tag &lt;a class="reference external" href="https://github.com/grupydf/grupydf.github.io/labels/Artigo"&gt;Artigos&lt;/a&gt; para concentrar todos os trabalhos).&lt;/p&gt;
+&lt;p&gt;Outra vantagem de utilizarmos o site estático tendo o GitHub como "backend" é que as publicações podem ser controladas por meio de Pull Requests. Desta forma não limitamos as publicações apenas a quem tem permissão no repositório e/ou é membro do Grupy-DF. Já se estivéssemos utilizando um CMS... teríamos que criar uma conta pra esse usuário e confiar a ele acesso à nossa infraestrutura.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="obtendo-uma-copia-do-site"&gt;
+&lt;h2&gt;Obtendo Uma Cópia do Site&lt;/h2&gt;
+&lt;p&gt;Para obter uma cópia do site você vai precisar do Git. Primeiramente acesse o &lt;a class="reference external" href="https://github.com/grupydf/grupydf.github.io/"&gt;repositório do site&lt;/a&gt; e crie um fork. Uma vez criado fork, clone o site em um diretório qualquer do seu desktop:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~
+&lt;span class="nv"&gt;$ &lt;/span&gt;git clone git@github.com:magnunleno/grupydf.github.io.git
+&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;grupydf.github.io
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O repositório é composto de alguns diretórios principais:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;grupydf.github.io
+│
+├── content
+│   ├── articles
+│   ├── images
+│   └── pages
+├── .plugins
+└── .themes
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É tudo muito intuitivo, o diretório &lt;tt class="docutils literal"&gt;content&lt;/tt&gt; possui todos os conteúdos, como artigos, imagens e páginas, o &lt;tt class="docutils literal"&gt;.plugins&lt;/tt&gt; contém todos os &lt;em&gt;plugins&lt;/em&gt; do Pelican, e o diretório &lt;tt class="docutils literal"&gt;themes&lt;/tt&gt; possui o tema que utilizamos no site. Mas não se preocupem, vamos nos focar apenas no diretório &lt;tt class="docutils literal"&gt;contents&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Agora temos que preparar o ambiente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="preparando-o-ambiente"&gt;
+&lt;h2&gt;Preparando o Ambiente&lt;/h2&gt;
+&lt;p&gt;Criar o ambiente de uso do Pelican é muito simples, pra isso você vai precisar de:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Python 2.7;&lt;/li&gt;
+&lt;li&gt;VirtualEnv;&lt;/li&gt;
+&lt;li&gt;Conexão de internet;&lt;/li&gt;
+&lt;li&gt;Um terminal;&lt;/li&gt;
+&lt;li&gt;Um editor de texto;&lt;/li&gt;
+&lt;li&gt;Um navegador;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Primeiro abra um terminal e crie um &lt;em&gt;virtual environment&lt;/em&gt; para o Python 2.7 (note que este passo não é obrigatório, mas é uma boa prática):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;virtualenv --prompt &lt;span class="s2"&gt;"(grupy-df)"&lt;/span&gt; ~/venv/grupy-df
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Eu gosto de armazenar todos os meus &lt;em&gt;virtual envs&lt;/em&gt; em um mesmo diretório (neste caso &lt;tt class="docutils literal"&gt;~/venv&lt;/tt&gt;), mas você pode colocar em qualquer outro lugar. Uma vez criado este &lt;em&gt;virtual env&lt;/em&gt;, ative-o:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;. ~/venv/grupy-df/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez ativado o &lt;em&gt;virtual env&lt;/em&gt; basta instalar todas as dependências, para isso utilize o seguinte comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pip install -r requirements.txt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Após instaladas todas as dependências faça uma compilação de teste do site com o comando &lt;tt class="docutils literal"&gt;make html&lt;/tt&gt;. Ao compilar o site é criado um diretório &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;, com o conteúdo gerado, não se preocupe, este diretório já está no &lt;tt class="docutils literal"&gt;.gitignore&lt;/tt&gt; e não deverá ser entrar no seu &lt;em&gt;commit&lt;/em&gt;. Para visualizar o site &lt;strong&gt;localmente&lt;/strong&gt; rode o comando &lt;tt class="docutils literal"&gt;make serve&lt;/tt&gt; (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL &lt;a class="reference external" href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt;. Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo &lt;tt class="docutils literal"&gt;Makefile&lt;/tt&gt;. Para sair do "modo servidor" pressione &lt;tt class="docutils literal"&gt;Ctrl+C&lt;/tt&gt; e a linha de comando retornará ao normal.&lt;/p&gt;
+&lt;p&gt;Após algum tempo de uso passe a pegar o costume de sempre executar uma cadeia de comandos para evitar que arquivos de compilações prévias interfiram com a minha visualização atual: &lt;tt class="docutils literal"&gt;make clean html serve&lt;/tt&gt;. Apenas esta linha de comando limpa o conteúdo do diretório &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;, gera o site novamente, e entra no modo servidor. Novamente, para sair do &lt;em&gt;modo servidor&lt;/em&gt; pressione &lt;tt class="docutils literal"&gt;Ctrl+C&lt;/tt&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="escrevendo-seus-proprios-artigos"&gt;
+&lt;h2&gt;Escrevendo Seus Próprios Artigos&lt;/h2&gt;
+&lt;p&gt;Para escrever seus próprios artigos sugiro olhar alguns de exemplo no diretório &lt;tt class="docutils literal"&gt;contents/articles&lt;/tt&gt;. Eu pessoalmente prefiro o uso da linguagem de marcação ReStructured Text, mas o Pelican também suporta a linguagem Markdown. Um artigo tem um cabeçalho fixo, conforme abaixo (em ReST):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gh"&gt;Como Publicar No Blog Do Grupy-Df&lt;/span&gt;
+&lt;span class="gh"&gt;=================================&lt;/span&gt;
+&lt;span class="nc"&gt;:date:&lt;/span&gt; &lt;span class="nf"&gt;2015-07-22 14:57&lt;/span&gt;
+&lt;span class="nc"&gt;:author:&lt;/span&gt; &lt;span class="nf"&gt;Magnun Leno&lt;/span&gt;
+&lt;span class="nc"&gt;:category:&lt;/span&gt; &lt;span class="nf"&gt;Tutoriais&lt;/span&gt;
+&lt;span class="nc"&gt;:tags:&lt;/span&gt; &lt;span class="nf"&gt;tutorial, tecnico, pelican, site&lt;/span&gt;
+&lt;span class="nc"&gt;:image:&lt;/span&gt; &lt;span class="nf"&gt;/images/monty-python-knights.jpg&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ou em Markdown:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Title: Como Publicar No Blog Do Grupy-Df
+Date: 2015-07-22 14:57
+Author: Magnun Leno
+Category: Tutoriais
+Tags: tutorial, tecnico, pelican, site
+Image: /images/monty-python-knights.jpg
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Novamente é tudo muito intuitivo, temos o título do artigo (a primeira linha em ReST, o a precedida por &lt;tt class="docutils literal"&gt;Title:&lt;/tt&gt; em Markdown) seguido da data de publicação (no formato &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;YYYY-MM-DD&lt;/span&gt; HH:MM&lt;/tt&gt;). Logo abaixo temos o nome do autor, categoria e uma lista de tags. Somente a última tag é algo implementado por mim e não é nativo do Pelican.&lt;/p&gt;
+&lt;p&gt;A Tag &lt;tt class="docutils literal"&gt;:image::&lt;/tt&gt; ou &lt;tt class="docutils literal"&gt;Image:&lt;/tt&gt; (em Markdown) faz referência à imagem de capa do artigo, que também fica no "cabeçalho" do artigo, conforme print screens abaixo:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/article-image-header.png"&gt;&lt;img alt="Article Image Header" src="http://grupydf.github.io/images/article-image-header.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Após estas &lt;em&gt;meta-tags&lt;/em&gt;, basta escrever o texto de acordo com a linguagem de marcação adotadas: &lt;a class="reference external" href="http://sphinx-doc.org/rest.html#rst-primer"&gt;ReStructured Text&lt;/a&gt; ou &lt;a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"&gt;Markdown&lt;/a&gt;. Para mais informações a &lt;a class="reference external" href="http://docs.getpelican.com/en/3.6.0/content.html"&gt;documentação do Pelican é excelente&lt;/a&gt;!
+Uma vez concluído o artigo, emita novamente o comando &lt;tt class="docutils literal"&gt;make clean html serve&lt;/tt&gt; e acesse a URL &lt;a class="reference external" href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt; e ver como ficou.&lt;/p&gt;
+&lt;p&gt;Lembre que o CSS deste site ainda não está completamente concluído e algumas coisas ainda precisam ser melhoradas, como por exemplo a exibição de códigos, tabelas e etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="enviando-sua-contribuicao"&gt;
+&lt;h2&gt;Enviando Sua Contribuição&lt;/h2&gt;
+&lt;p&gt;Uma vez concluído o artigo, vamos realizar o &lt;em&gt;commit&lt;/em&gt; da alteração:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git add content/article/meu-artigo.rst
+&lt;span class="nv"&gt;$ &lt;/span&gt;git add content/images/minha-imagem-do-artigo.png
+&lt;span class="nv"&gt;$ &lt;/span&gt;git commit -m &lt;span class="s2"&gt;"Adicionado novo artivo 'meu-artigo'"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;em&gt;commit&lt;/em&gt; realizado com sucesso, você pode realizar o push pro seu repositório remoto (GitHub):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git push origin pelican
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta enviar um &lt;em&gt;Pull Request&lt;/em&gt; do do seu repositório e os gestores do site irão aprovar sua contribuição.&lt;/p&gt;
+&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="tutorial"></category><category term="tecnico"></category><category term="pelican"></category><category term="site"></category><category term="git"></category><category term="github"></category><category term="pip"></category><category term="virtual env"></category></entry><entry><title>8º TutuPy</title><link href="http://grupydf.github.io/blog/8o-tutupy" rel="alternate"></link><updated>2015-07-17T19:11:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-17:blog/8o-tutupy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;E hoje, dia 17 de Julho de 2015, os membros do Grupy-DF mais uma vez se reuniram no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). Entre uma conversa e outra, rolou muito tutu, algumas cervejas, distribuição de adesivos e livros adquiridos (ambos) em uma compra coletiva e uma longa discussão sobre os principais pontos do último &lt;em&gt;sprint&lt;/em&gt; que realizamos.&lt;/p&gt;
+&lt;p&gt;Ah, e finalmente bateram uma foto do dito cujo!&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/tutu.jpg"&gt;&lt;img alt="Tutu" src="http://grupydf.github.io/images/tutupy/tutu.jpg" style="width: 400px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Segue abaixo a listagem de tópicos discutidos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Repercussão do Sprint;&lt;/li&gt;
+&lt;li&gt;Possibilidade de unificar a base de dados das conferências;&lt;/li&gt;
+&lt;li&gt;Definição de que o Sprint pode agilizar vários pontos da APYB;&lt;/li&gt;
+&lt;li&gt;Como a comunidade pode lidar com novos integrantes;&lt;/li&gt;
+&lt;li&gt;Como funciona a diretoria da ApyBR e a votação;&lt;/li&gt;
+&lt;li&gt;Outros pontos da Python Brasil, diretoria de cada conferência e assuntos das listas;&lt;/li&gt;
+&lt;li&gt;Grupys e PUGs, formas de organização e de trabalhar as comunidades aproveitando as skills de cada um;&lt;/li&gt;
+&lt;li&gt;Logística de transporte e hospedagem pra PythonBrasil[11], incluindo a possibilidade de alugar algum lugar, negociando um pacote fechado para ficar mais barato para a galera do Grupy-DF (e de outros estados);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="figure align-center" style="width: 1280px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/oitavo-tutupy.jpg"&gt;&lt;img alt="8º Tutupy" src="http://grupydf.github.io/images/tutupy/oitavo-tutupy.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Pra fechar o nosso Mestre Zen (Decko de Brito) nos brindou com a seguinte frase célebre:&lt;/p&gt;
+&lt;blockquote&gt;
+Gentileza gera gentileza... e gente leza gera gente leza.&lt;/blockquote&gt;
+&lt;p&gt;E aí, se arrependeu de não ter ido no 8º TutuPy? Então não perca o próximo! Acompanhe o Grupy-DF nas redes sociais e apareça no próximo! Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" style="border:0" width="100%"&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="encontro"></category><category term="evento"></category><category term="tutu"></category><category term="restaurante"></category><category term="marambaia"></category></entry><entry><title>7º TutuPy</title><link href="http://grupydf.github.io/blog/7o-tutupy" rel="alternate"></link><updated>2015-07-07T23:51:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-07:blog/7o-tutupy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Na última sexta-feira, também conhecido como dia 03 de Julho de 2015, a trupe do Grupy-DF se reuniu mais uma vez no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). Entre um papo descontraído e outro, rolou muito tutu, algumas cervejas e foram distribuídas camisetas e réguas da PythonBrasil[9]/PloneConf 2013.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 1280px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/setimo-tutupy.jpg"&gt;&lt;img alt="7º Tutupy" src="http://grupydf.github.io/images/tutupy/setimo-tutupy.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Claro que não podia faltar o papo técnico! Foram discutidas as diferenças e principais características de CGI, FLASK, Django, Plone, Pyramid, web2py e etc, além de uma comparação de alguns SGBDs (Sistemas Gerenciadores de Banco de Dados) como o mongoDB, ZODB, Postgres, dentre outros. O grupo também se enveredou em uma discussão filosófica sobre intermediadores de pagamentos e equivalentes como o PagSeguro, PayPal, Moip, Iugu...&lt;/p&gt;
+&lt;p&gt;Foi planejado o adiamento do dojo em prol de um sprint de desenvolvimento que irá ocorre no dia 11 de Julho de 2015, na QI 19, Lago Sul (mais informações com a &lt;a class="reference external" href="https://twitter.com/taniaandrea_com"&gt;Tânia&lt;/a&gt;). Ficou definido esse sprint se focará nos seguintes pontos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Desenvolver o site da Pyladies;&lt;/li&gt;
+&lt;li&gt;Colocar no ar os sites de eventos antigos da PythonBrasil;&lt;/li&gt;
+&lt;li&gt;Ajudar no desenvolvimento de coisas que estão pendentes da PythonBrasil desse ano;&lt;/li&gt;
+&lt;li&gt;Tradução de documentações do Django.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E aí, se arrependeu de não ter ido no 7º TutuPy? Então não perca o próximo! Acompanhe o Grupy-DF nas redes sociais e apareça no próximo! Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" style="border:0" width="100%"&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="encontro"></category><category term="evento"></category><category term="tutu"></category><category term="restaurante"></category><category term="marambaia"></category></entry><entry><title>Bem vindos ao blog do Grupy-DF!</title><link href="http://grupydf.github.io/blog/bem-vindos-ao-blog-do-grupy-df" rel="alternate"></link><updated>2015-07-07T16:16:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-07:blog/bem-vindos-ao-blog-do-grupy-df</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal! Esse é o primeiro artigo do Blog do &lt;cite&gt;Grupy-DF&lt;/cite&gt;, consequentemente irei usá-lo para dar as boas vindas a todos e para informar como estamos procedendo com o desenvolvimento, manutenção e produção deste site. Quero ressaltar a palavra &lt;strong&gt;desenvolvimento&lt;/strong&gt;, pois este ainda não é um trabalho pronto, é um projeto aberto, colaborativo e atualizado constantemente.&lt;/p&gt;
+&lt;p&gt;Primeiramente, este site está sendo disponibilizado para vocês através do &lt;a class="reference external" href="http://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; logo, todo este site é 100% HTML estático, o que nos garante um bom desempenho, um baixo consumo de recursos e uma boa tranquilidade no quesito segurança. Como vocês já podem imaginar, toda a gerência de permissões e publicações também estão sendo feitaas via GitHub, no repositórios do &lt;a class="reference external" href="http://github.com/GrupyDF/grupydf.github.io"&gt;grupydf.github.io&lt;/a&gt;, se utilizando Pull Requests e Forks. A propósito, se você encontrar qualquer erro no site, basta abrir uma &lt;a class="reference external" href="http://github.com/GrupyDF/grupydf.github.io/issues"&gt;Issue no nosso repositório&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Mas é claro que não estamos escrevendo o HTML na mão, para nos auxiliar estamos utilizando o gerador de sites estáticos escrito em Python chamado &lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; (v3.6 mais especificamente). Logo, se você simpatiza com o grupo (não necessariamente precisa pertencer ao Grupy-DF) e quer publicar um artigo aqui, basta escrevê-lo utilizando a linguagem de marcação ReStructured Text ou Markdown e enviar um Pull Request.&lt;/p&gt;
+&lt;p&gt;Caso esteja curioso com o &lt;em&gt;look 'n' Feel&lt;/em&gt; do site, ele foi desenvolvido utilizando o framework CSS &lt;a class="reference external" href="http://materializecss.com/"&gt;Materialize&lt;/a&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="blog"></category><category term="site"></category><category term="início"></category></entry></feed>
