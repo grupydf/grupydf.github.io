@@ -98,6 +98,8 @@ SITEMAP = {
     },
 }
 
+GITHUB_REPO = "http://github.com/grupydf/grupydf.github.io"
+GITHUB_BRANCH = "pelican"
 
 # Navbar Links
 NAVBAR_HOME_LINKS = [
