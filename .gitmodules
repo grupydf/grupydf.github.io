@@ -1,0 +1,3 @@
+[submodule "themes/malt"]
+	path = themes/malt
+	url = git@github.com:grupydf/malt.git

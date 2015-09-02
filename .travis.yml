@@ -1,0 +1,24 @@
+language: python
+branches:
+  only:
+  - pelican
+# Handle git submodules yourself
+git:
+  submodules: false
+before_install:
+  - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-pt
+  # Use sed to replace the SSH URL with the public URL, then initialize submodules
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
+install:
+- pip install -r requirements.txt
+script:
+- make travis ping
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+env:
+  global:
+    secure: M89oM8u6m6oOxNpvtNpCBRRdwZWbuR8sknNgQ+QMuPZKmRQA1UxBYTAmc3j9emGF5ko7F0hY2+t/dD1h6nIUzwN/9lckK8qOy69g7nRr2itmcn6fBJaPXHRQYMs0ugnUeQ6b6a/qdzds5xP8gX7R6cDuYrPe5D/x6Ty3ssKzLodVMCe84ylqvj9MBfHknI/OzpVvSWY7m5PelYU0fvBc+JL2UpAegME0D2wotqjg/mmsdtJGzZDVZ0ALgDRPnABD5F1bwlBSuOzr1CtYQMLEG/BUYkVPpbIvi91F7iWtLhwEBX14JL+ceNhKhSyHowA3YYnLhD9kTCzgtH6GEZUWUHo7VzwBv3zXSsNHQPeXAyY9XEhXsujGaHqxnHjImhBDTtgJQXmDbvoN+j8U1AiTC9Ket0/isUMx5Rn+MrzAp7GKhxc5cnsEdL3sDHjO975p6yAiTGhlRcke9eWiqokq03GIGnyGxvOfFvNd5+ohhmuogrXw6cy0ghmGNiDt5ypIb8DsUuNKCLKr8Ue2c2KbURaTouaNEcHbIr5dRUMX2gVOwbqceJY6aTRGP3ij4ajLo0YeoqS+eh7Resd7H3RB/FPECGJtrOELTALqiUOqwVJMNV6PASvmIzEsDlnP22LOFMb0p01Nv0EmO7KoNGBvB2HgY4ZT26/a9wz/daPiK/o=
+
