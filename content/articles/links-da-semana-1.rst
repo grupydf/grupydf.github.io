@@ -98,3 +98,29 @@ Link: `http://gabrielrb.net/2011/10/18/dados-prontos-em-formato-sql-e-csv/ <http
 Essa semana houve um hangout com Tony Lampada, que criou vários cursos, dentre eles o de AngularJS. Nesse encontro, ele ensina a usar framework Javascript juntamente com o Django, para criar o seu back-end. Vale dar uma olhada.
 
 Link: `http://tonylampada.github.io/randomstuff/djangular3.html <http://tonylampada.github.io/randomstuff/djangular3.html>`_
+
+10. Live Coding de uma mesma aplicação, usando vários frameworks web
+--------------------------------------------------------------------
+
+O pessoal do `Full Stack Python <https://twitter.com/fullstackpython>`_ no Twitter, mandou esse link de um video na livecoding.tv sobre o desenvolvimento de várias aplicações, mas usando a mesma regra de negócios (sistema de contatos) mas com vários frameworks web em python. Para quem quer ter uma melhor comparação de qual ferramenta usar, esse vídeo pode ser uma das várias fontes de pesquisa, antes de iniciar o seu projeto.
+
+Link: `https://www.livecoding.tv/video/comparing-python-web-frameworks-5/ <https://www.livecoding.tv/video/comparing-python-web-frameworks-5/>`_
+
+Repositório: `https://github.com/makaimc/pycontacts <https://github.com/makaimc/pycontacts>`_
+
+11. Desenvolvimento com Bottle - Parte 1
+----------------------------------------
+
+O blog `Real Python <https://realpython.com>`_ sempre colocar ótimos posts sobre ferramentas python. Recentemente colocaram a primeira parte do "Developing with Bottle", que é um microframework web. Quem tiver o interesse, ele ensina os primeiros passos de como usá-la.
+
+Link: `https://realpython.com/blog/python/developing-with-bottle-part-1 <https://realpython.com/blog/python/developing-with-bottle-part-1>`_
+
+12. Manual de organização do Django Girls
+-----------------------------------------
+
+A galera do `Django Girls Niterói <https://djangogirls.org/niteroi/>`_ fez a tradução do Manual de Organização do Django Girls, que oferece dicas e orientação para você fazer o evento na sua cidade. Para quem não conhece, o `Django Girls <djangogirls.org>`_ é uma iniciativa de organizar pequenos workshops para promover a cultura do desenvolvimento e programação web para mulheres que tenham o desejo de aprender, usando as tecnologias Python e Django.
+
+Link: `https://github.com/pyladies-brazil/organizer-manual/tree/master/pt-br <https://github.com/pyladies-brazil/organizer-manual/tree/master/pt-br>`_
+
+
+Então é isso. Até a próxima semana!
