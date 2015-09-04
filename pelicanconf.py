@@ -194,7 +194,7 @@ MEMBROS = OrderedDict((
         "github": "phinfonet"
         }),
     ("Gilson Filho", {
-        "email": "contatogilsonsbf@gmail.com",
+        "email": "me@gilsondev.in",
         "twitter": "@gilsonfilho",
         "github": "gilsondev"
         }),
