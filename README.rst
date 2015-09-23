@@ -14,6 +14,8 @@ Estamos nos encontrando normalmente de 15 em 15 dias e postando novidades no nos
 
 Temos uma lista de discussão nos grupos do google, http://groups.google.com/group/grupy-df
 
-E também uma página no wiki da comunidade Python Brasileira, http://wiki.python.org.br//GrupoDeUsuarios
+Um grupo no Telegram e no Slack para assuntos urgentes e para manter contato diário ;) 
+
+E também uma página no wiki da comunidade Python Brasileira, http://wiki.python.org.br/GrupoDeUsuarios/
 
 Estamos divulgando a linguagem Python no Distrito Federal, participando de eventos e organizando eventos!
