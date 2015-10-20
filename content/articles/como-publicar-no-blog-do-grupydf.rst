@@ -23,7 +23,7 @@ Para obter uma cópia do site você vai precisar do Git. Primeiramente acesse o 
 .. code-block:: bash
 
     $ cd ~
-    $ git clone git@github.com:magnunleno/grupydf.github.io.git
+    $ git clone --recursive git@github.com:magnunleno/grupydf.github.io.git
     $ cd grupydf.github.io
 
 O repositório é composto de alguns diretórios principais:
