@@ -50,7 +50,7 @@ Algumas referências em inglês sobre o assunto:
 - `The XY Problem`_
 - `Wiki XY Problem`_
 
-    Deveria haver um — e de preferencialmente apenas um —  modo óbvio para fazer algo.
+    Deveria haver um — e preferencialmente apenas um —  modo óbvio para fazer algo.
 
     Embora esse modo possa não ser óbvio a princípio, a menos que você seja holandês.
 
