@@ -6,12 +6,12 @@ Como Publicar No Blog Do Grupy-Df
 :tags: tutorial, tecnico, pelican, site, git, github, pip, virtual env
 :image: /images/monty-python-knights.jpg
 
-Olá pessoal! Recentemente `inauguramos o site do Grupy-DF`_ e alguns membros do grupo estão começando a produzir conteúdos. Como eu fui o "maluco" a propor essa plataforma, achei que seria justo escrever um tutorial para aqueles que desconhecem um pouco o `Pelican`_. Então preparem seus cérebros pois vamos aprender deste *virtual env* até versionamento de código!
+Olá pessoal! Recentemente `inauguramos o site do Grupy-DF`_ e alguns membros do grupo estão começando a produzir conteúdos. Como eu fui o "maluco" a propor essa plataforma, achei que seria justo escrever um tutorial para aqueles que desconhecem um pouco o `Pelican`_. Então preparem seus cérebros pois vamos aprender desde *virtual env* até versionamento de código!
 
 O Que é o Pelican
 -----------------
 
-Primeiramente o Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), isto é, nosso site não possui nenhum servidor de aplicação (*backend*) em execução, ele é composto apenas de arquivos HTML, CSS e JavaScript. Mas por que isso é vantajoso? Eu já `escrevi sobre isso no meu site`_, mas em resumo ganhamos em performance, hospedagem, segurança e versionamento. Como este site receberá publicações de várias pessoas, resolvemos usar as *Issues* do GitHub para controlar os artigos que estão em processo de descrita (foi criada uma tag `Artigos`_ para concentrar todos os trabalhos). 
+Primeiramente o Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), isto é, nosso site não possui nenhum servidor de aplicação (*backend*) em execução, ele é composto apenas de arquivos HTML, CSS e JavaScript. Mas por que isso é vantajoso? Eu já `escrevi sobre isso no meu site`_, mas em resumo ganhamos em performance, hospedagem, segurança e versionamento. Como este site receberá publicações de várias pessoas, resolvemos usar as *Issues* do GitHub para controlar os artigos que estão em processo de escrita (foi criada uma tag `Artigos`_ para concentrar todos os trabalhos). 
 
 Outra vantagem de utilizarmos o site estático tendo o GitHub como "backend" é que as publicações podem ser controladas por meio de Pull Requests. Desta forma não limitamos as publicações apenas a quem tem permissão no repositório e/ou é membro do Grupy-DF. Já se estivéssemos utilizando um CMS... teríamos que criar uma conta pra esse usuário e confiar a ele acesso à nossa infraestrutura.
 
@@ -104,7 +104,7 @@ Ou em Markdown:
     Tags: tutorial, tecnico, pelican, site
     Image: /images/monty-python-knights.jpg
 
-Novamente é tudo muito intuitivo, temos o título do artigo (a primeira linha em ReST, o a precedida por ``Title:`` em Markdown) seguido da data de publicação (no formato ``YYYY-MM-DD HH:MM``). Logo abaixo temos o nome do autor, categoria e uma lista de tags. Somente a última tag é algo implementado por mim e não é nativo do Pelican.
+Novamente é tudo muito intuitivo, temos o título do artigo (a primeira linha em ReST, ou a precedida por ``Title:`` em Markdown) seguido da data de publicação (no formato ``YYYY-MM-DD HH:MM``). Logo abaixo temos o nome do autor, categoria e uma lista de tags. Somente a última tag é algo implementado por mim e não é nativo do Pelican.
 
 A Tag ``:image::`` ou ``Image:`` (em Markdown) faz referência à imagem de capa do artigo, que também fica no "cabeçalho" do artigo, conforme print screens abaixo:
 
@@ -114,7 +114,7 @@ A Tag ``:image::`` ou ``Image:`` (em Markdown) faz referência à imagem de capa
     :align: center
 
 Após estas *meta-tags*, basta escrever o texto de acordo com a linguagem de marcação adotadas: `ReStructured Text`_ ou `Markdown`_. Para mais informações a `documentação do Pelican é excelente`_!
-Uma vez concluído o artigo, emita novamente o comando ``make clean html serve`` e acesse a URL http://localhost:8000 e ver como ficou.
+Uma vez concluído o artigo, emita novamente o comando ``make clean html serve`` e acesse a URL http://localhost:8000 para ver como ficou.
 
 Lembre que o CSS deste site ainda não está completamente concluído e algumas coisas ainda precisam ser melhoradas, como por exemplo a exibição de códigos, tabelas e etc.
 
@@ -135,7 +135,7 @@ Com o *commit* realizado com sucesso, você pode realizar o push pro seu reposit
 
     $ git push origin pelican
 
-Agora basta enviar um *Pull Request* do do seu repositório e os gestores do site irão aprovar sua contribuição.
+Agora basta enviar um *Pull Request* do seu repositório e os gestores do site irão aprovar sua contribuição.
 
 .. _inauguramos o site do Grupy-DF: /blog/bem-vindos-ao-blog-do-grupy-df/
 .. _Pelican: http://blog.getpelican.com/
