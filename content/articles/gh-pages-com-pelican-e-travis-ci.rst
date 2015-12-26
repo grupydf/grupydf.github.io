@@ -185,7 +185,7 @@ Em nosso caso iremos criar o arquivo:
 
 E adicionar o seguinte conteúdo:
 
-.. code-block:: text
+.. code-block:: yaml
     
     sudo: false
     branches:
@@ -193,19 +193,25 @@ E adicionar o seguinte conteúdo:
       - pelican
     language: python
     before_install:
+    # troque a linha abaixo pelo resultado do comando:
+    # travis encrypt-file publish-key
+    # porém mantenha o final: 
+    # -out ~/.ssh/publish-key -d
     - openssl aes-256-cbc -K $encrypted_591fe46d4973_key -iv $encrypted_591fe46d4973_iv -in publish-key.enc -out ~/.ssh/publish-key -d
     - chmod u=rw,og= ~/.ssh/publish-key
     - echo "Host github.com" >> ~/.ssh/config
     - echo "  IdentityFile ~/.ssh/publish-key" >> ~/.ssh/config
+    # substitua git@github.com:humrochagf/humrochagf.github.io.git
+    # pelo endereço de acesso ssh do seu repositório
     - git remote set-url origin git@github.com:humrochagf/humrochagf.github.io.git
+    # Caso esteja montando a página de projeto troque master:master 
+    # por gh-pages:gh-pages
     - git fetch origin -f master:master
     install:
     - pip install --upgrade pip
     - pip install -r requirements.txt
     script:
     - make github
-
-Caso esteja montando a página de projeto troque `master:master` por `gh-pages:gh-pages`.
 
 Removemos em seguida a chave privada não cifrada para não correr o risco de publicar no repositório:
 
