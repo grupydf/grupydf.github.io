@@ -155,7 +155,7 @@ O próximo passo é criar uma **Deploy Key** para que o travis possa publicar co
     Your identification has been saved in publish-key.
     Your public key has been saved in publish-key.pub.
 
-Criada a chave vamos cifrar usando a ferramenta `Travis-CLI`_ para poder publica-la em nosso repositório sem expor o conteúdo da chave privada. Certifique-se de que o `Travis-CLI`_ esteja instalado em sua máquina:
+Criada a chave vamos cifrar usando a ferramenta `Travis-CLI`_ (certifique-se de que esteja instalada em sua máquina) para poder publicar em nosso repositório sem expor o conteúdo da chave privada:
 
 .. code-block:: bash
 
