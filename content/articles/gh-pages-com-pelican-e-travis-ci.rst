@@ -144,7 +144,7 @@ Em seguida vá nas configurações do repositório no travis e desabilite a opç
     :alt: Configurando remositório no travis
     :align: center
 
-O próximo passo é criar uma **Deploy Key** para que o travis possa publicar conteúdo no seu repositório. Para isso de uma nova chave ssh:
+O próximo passo é criar uma **Deploy Key** para que o travis possa publicar conteúdo no github. Para isso gere uma chave ssh na raiz do repositório local:
 
 .. code-block:: bash
 
@@ -155,7 +155,7 @@ O próximo passo é criar uma **Deploy Key** para que o travis possa publicar co
     Your identification has been saved in publish-key.
     Your public key has been saved in publish-key.pub.
 
-Criada a chave vamos cifrar usando a ferramenta `Travis-CLI`_:
+Criada a chave vamos cifrar usando a ferramenta `Travis-CLI`_ para poder publica-la em nosso repositório sem expor o conteúdo da chave privada. Certifique-se de que o `Travis-CLI`_ esteja instalado em sua máquina:
 
 .. code-block:: bash
 
