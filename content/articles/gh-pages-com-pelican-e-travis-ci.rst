@@ -219,6 +219,8 @@ Removemos em seguida a chave privada não cifrada para não correr o risco de pu
 
     $ rm publish-key
 
+**ATENÇÃO**: Em hipótese alguma adicione o arquivo **publish-key** em seu repositório, pois ele contém a chave privada não cifrada que tem poder de commit em seu repositório, e não deve ser publicada. Adicione somente o arquivo **publish-key.enc**. Se você adicionou por engano refaça os passos de geração da chave e cifração para gerar uma chave nova.
+
 Agora adicionaremos os arquivos no repositório:
 
 .. code-block:: bash
