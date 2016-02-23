@@ -156,6 +156,11 @@ SOCIAL_LINKS = (
         "text": "Slack",
     },
     {
+        "href": "https://telegram.me/joinchat/AG9QCABLx9wgYM1bcoGxgQ",
+        "icon": "fa-paper-plane",
+        "text": "Telegram",
+    },
+    {
         "href": "https://groups.google.com/forum/#!forum/grupy-df",
         "icon": "fa-envelope",
         "text": "Mailing List",
