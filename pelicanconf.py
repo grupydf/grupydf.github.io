@@ -136,6 +136,16 @@ NAVBAR_BLOG_LINKS = NAVBAR_HOME_LINKS + [
 
 SOCIAL_LINKS = (
     {
+        "href": "https://telegram.me/joinchat/AG9QCABLx9wgYM1bcoGxgQ",
+        "icon": "fa-paper-plane",
+        "text": "Telegram",
+    },
+    {
+        "href": "https://github.com/grupydf",
+        "icon": "fa-github",
+        "text": "GitHub",
+    },
+    {
         "href": "https://twitter.com/grupydf",
         "icon": "fa-twitter",
         "text": "Twitter",
@@ -144,16 +154,6 @@ SOCIAL_LINKS = (
         "href": "https://www.facebook.com/groups/grupydf",
         "icon": "fa-facebook",
         "text": "Facebook",
-    },
-    {
-        "href": "https://github.com/grupydf",
-        "icon": "fa-github",
-        "text": "GitHub",
-    },
-    {
-        "href": "http://grupydf.slack.com",
-        "icon": "fa-slack",
-        "text": "Slack",
     },
     {
         "href": "https://groups.google.com/forum/#!forum/grupy-df",
@@ -237,7 +237,7 @@ MALT_HOME = [
                 "title": "Comunidade",
                 "icon": "fa-comments",
                 "text": "A comunidade do GrupyDF se comunica através de mailing " +\
-                    "lists, grupo no telegram e no slack, mas frequentemente são " +\
+                    "lists e do grupo no telegram mas frequentemente são " +\
                     "promovidos encontros diversos, como almoços, " +\
                     "<em>coding dojos</em> e palestras. ",
                 "buttons": [
