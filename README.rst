@@ -8,6 +8,8 @@ Site do Grupy-DF: http://df.python.org.br/
 
 Seja bem vindo!
 
+.. image:: foto_grupy-df_na_pybr12.jpg
+
 Esta página contém as informações sobre o Grupo de Usuários de Python no Distrito Federal.
 
 Estamos nos encontrando normalmente de 15 em 15 dias e postando novidades no nosso site: http://df.python.org.br/
