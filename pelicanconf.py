@@ -168,6 +168,10 @@ MEMBROS = OrderedDict((
         "twitter": "@pixeledbird",
         "github": "bigua"
         }),
+    ("Dirley Rodrigues", {
+        "twitter": "@dirleyrls",
+        "github": "ravishi"
+        }),
     ("Eduardo Henrique", {
         "email": "eduardohitek@gmail.com",
         "twitter": "@eduardohitek",
@@ -178,11 +182,35 @@ MEMBROS = OrderedDict((
         "twitter": "@gblmiranda",
         "github": "gblmiranda"
         }),
+    ("Gilson Filho", {
+        "email": "me@gilsondev.in",
+        "twitter": "@gilsonfilho",
+        "github": "gilsondev"
+        }),
     ("Humberto Rocha", {
         "email": "humrochagf@gmail.com",
         "twitter": "@humrochagf",
         "github": "humrochagf"
         }),
+    ("Israel P. Siqueira", {
+        "email": "israelps@gmail.com",
+        "twitter": "@israelps",
+        "github": "israelps"
+        }),
+    ("Jéssica Macedo", {
+        "email": "jessica.mmacedo@gmail.com",
+        "twitter": "@jemmacedo",
+        "github": "jornalistadigital"
+        }),  
+    ("Magnun Leno", {
+        "email": "magnun.leno@gmail.com",
+        "twitter": "@mind_bend",
+        "github": "magnunleno",
+        "site": {
+            "nome": "Mind Bending",
+            "href": "http://mindbending.org",
+            }
+        }),    
     ("Marco Rougeth", {
         "email": "marco@rougeth.com",
         "twitter": "@marcorougeth",
@@ -198,33 +226,19 @@ MEMBROS = OrderedDict((
         "twitter": "@phinfonet",
         "github": "phinfonet"
         }),
-    ("Gilson Filho", {
-        "email": "me@gilsondev.in",
-        "twitter": "@gilsonfilho",
-        "github": "gilsondev"
-        }),
-    ("Dirley Rodrigues", {
-        "twitter": "@dirleyrls",
-        "github": "ravishi"
-        }),
+    ("Tânia Andrea", {
+        "email": "taniaa.moreira@gmail.com",
+        "twitter": "@taniaandrea_com",
+        "github": "taniaa",
+        "site": {
+            "nome": "Meu perfil hacker :)",
+            "href": "http://calango.club/membros/taniaa",
+            }      
+        }),  
     ("Wagner Santos", {
         "email": "wagnerjs.unb@gmail.com",
         "twitter": "@wagnerjsantos",
         "github": "wagnerjs"
-        }),
-    ("Israel P. Siqueira", {
-        "email": "israelps@gmail.com",
-        "twitter": "@israelps",
-        "github": "israelps"
-        }),
-    ("Magnun Leno", {
-        "email": "magnun.leno@gmail.com",
-        "twitter": "@mind_bend",
-        "github": "magnunleno",
-        "site": {
-            "nome": "Mind Bending",
-            "href": "http://mindbending.org",
-            }
         })
 ))
 
