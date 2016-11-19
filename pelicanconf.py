@@ -168,6 +168,15 @@ MEMBROS = OrderedDict((
         "twitter": "@pixeledbird",
         "github": "bigua"
         }),
+    ("Bruno Barbosa", {
+        "email": "bsbruno1@gmail.com",
+        "twitter": "@brunobbbs",
+        "github": "brunobbbs",
+        "site": {
+            "nome": "Anotações de um programador Python",
+            "href": "http://brunobarbosa.com.br",
+            }
+        }),
     ("Dirley Rodrigues", {
         "twitter": "@dirleyrls",
         "github": "ravishi"
