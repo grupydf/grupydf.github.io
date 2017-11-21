@@ -146,6 +146,11 @@ SOCIAL_LINKS = (
         "text": "GitHub",
     },
     {
+        "href": "https://www.meetup.com/pt-BR/pythondf/",
+        "icon": "fa-meetup",
+        "text": "Meetup",
+    },
+    {
         "href": "https://twitter.com/grupydf",
         "icon": "fa-twitter",
         "text": "Twitter",
