@@ -136,7 +136,7 @@ NAVBAR_BLOG_LINKS = NAVBAR_HOME_LINKS + [
 
 SOCIAL_LINKS = (
     {
-        "href": "https://telegram.me/joinchat/AG9QCABLx9wgYM1bcoGxgQ",
+        "href": "https://t.me/grupydf",
         "icon": "fa-paper-plane",
         "text": "Telegram",
     },
