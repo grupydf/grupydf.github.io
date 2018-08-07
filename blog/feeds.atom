@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Grupy-DF</title><link href="http://grupydf.github.io/" rel="alternate"></link><link href="http://grupydf.github.io/blog/feeds.atom" rel="self"></link><id>http://grupydf.github.io/</id><updated>2015-12-24T12:00:00-02:00</updated><entry><title>GitHub Pages com Pelican e Travis-CI</title><link href="http://grupydf.github.io/blog/github-pages-com-pelican-e-travis-ci" rel="alternate"></link><published>2015-12-24T12:00:00-02:00</published><updated>2015-12-24T12:00:00-02:00</updated><author><name>Humberto Rocha</name></author><id>tag:grupydf.github.io,2015-12-24:blog/github-pages-com-pelican-e-travis-ci</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal!&lt;/p&gt;
+&lt;p&gt;Estou fazendo esta postagem para ajudar quem quer criar seu site no &lt;a class="reference external" href="http://pages.github.com"&gt;GitHub Pages&lt;/a&gt; usando &lt;a class="reference external" href="http://blog.getpelican.com"&gt;Pelican&lt;/a&gt; para a criação das páginas e o &lt;a class="reference external" href="https://travis-ci.org"&gt;Travis-CI&lt;/a&gt; para automatizar a tarefa de geração e publicação.&lt;/p&gt;
+&lt;p&gt;Este guia assume que o leitor possua conta no &lt;a class="reference external" href="http://github.com"&gt;GitHub&lt;/a&gt; e no &lt;a class="reference external" href="https://travis-ci.org"&gt;Travis-CI&lt;/a&gt; e tenha familiaridade com o ambiente python. A versão do pelican utilizada ao elaborar esta publicação foi a 3.6.&lt;/p&gt;
+&lt;div class="section" id="o-github-pages"&gt;
+&lt;h2&gt;O GitHub Pages&lt;/h2&gt;
+&lt;p&gt;O GitHub Pages é uma funcionalidade gratuita do GitHub para hospedar conteúdo estático (html, css, js e imagens) e publicar através de um sub-domínio de &lt;strong&gt;github.io&lt;/strong&gt; ou até mesmo de um domínio customizado. É baseado em seu funcionamento que iremos guiar nossos próximos passos.&lt;/p&gt;
+&lt;p&gt;Resumidamente existem duas formas de se criar uma página pelo gh pages:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1 - Página de usuário/organização&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para este tipo de página crie um repositório com o nome &lt;tt class="docutils literal"&gt;usuario.github.io&lt;/tt&gt;, onde &lt;tt class="docutils literal"&gt;usuario&lt;/tt&gt; é o nome de usuário ou organização da conta em que o repositório será criado:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 717px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/pagina-usuario.png"&gt;&lt;img alt="Repositório da página de usuário" src="http://grupydf.github.io/images/gh-pelican-travis/pagina-usuario.png" style="width: 717px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;O conteúdo a ser publicado deve ser colocado na &lt;strong&gt;branch master&lt;/strong&gt; e os arquivos do pelican na &lt;strong&gt;branch pelican&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2 - Página de projeto&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para este tipo de página crie um repositório com o nome &lt;tt class="docutils literal"&gt;meuprojeto&lt;/tt&gt;, onde &lt;tt class="docutils literal"&gt;meuprojeto&lt;/tt&gt; é o nome desejado para o projeto que será publicado em &lt;tt class="docutils literal"&gt;usuario.github.io&lt;/tt&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 718px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/pagina-projeto.png"&gt;&lt;img alt="Repositório da página de projeto" src="http://grupydf.github.io/images/gh-pelican-travis/pagina-projeto.png" style="width: 718px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;O conteúdo a ser publicado deve ser colocado na &lt;strong&gt;branch gh-pages&lt;/strong&gt; e os arquivos do pelican na &lt;strong&gt;branch pelican&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Para mais informações acesse o site oficial do &lt;a class="reference external" href="http://pages.github.com"&gt;GitHub Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pelican"&gt;
+&lt;h2&gt;Pelican&lt;/h2&gt;
+&lt;p&gt;O pelican é um gerador de site estático otimizado por padrão para criação de blogs. Utilizaremos aqui, para fins de demonstração, o modelo padrão do de blog seguindo o caminho de criação de página de usuário/organização, qualquer diferença do caminho de página de projeto será descrita quando necessário.&lt;/p&gt;
+&lt;p&gt;Para instalar o pelican basta rodar o comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install &lt;span class="nv"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;.6
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para criar um projeto faça:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir humrochagf.github.io
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; humrochagf.github.io
+$ pelican-quickstart
+Welcome to pelican-quickstart v3.6.3.
+
+This script will &lt;span class="nb"&gt;help&lt;/span&gt; you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&amp;gt; Where &lt;span class="k"&gt;do&lt;/span&gt; you want to create your new web site? &lt;span class="o"&gt;[&lt;/span&gt;.&lt;span class="o"&gt;]&lt;/span&gt;
+&amp;gt; What will be the title of this web site? Meu Blog
+&amp;gt; Who will be the author of this web site? Humberto Rocha
+&amp;gt; What will be the default language of this web site? &lt;span class="o"&gt;[&lt;/span&gt;en&lt;span class="o"&gt;]&lt;/span&gt; pt
+&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com   &lt;span class="o"&gt;(&lt;/span&gt;Y/n&lt;span class="o"&gt;)&lt;/span&gt; n
+&amp;gt; Do you want to &lt;span class="nb"&gt;enable&lt;/span&gt; article pagination? &lt;span class="o"&gt;(&lt;/span&gt;Y/n&lt;span class="o"&gt;)&lt;/span&gt; y
+&amp;gt; How many articles per page &lt;span class="k"&gt;do&lt;/span&gt; you want? &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&amp;gt; What is your &lt;span class="nb"&gt;time&lt;/span&gt; zone? &lt;span class="o"&gt;[&lt;/span&gt;Europe/Paris&lt;span class="o"&gt;]&lt;/span&gt; America/Sao_Paulo
+&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? &lt;span class="o"&gt;(&lt;/span&gt;Y/n&lt;span class="o"&gt;)&lt;/span&gt; y
+&amp;gt; Do you want an auto-reload &lt;span class="p"&gt;&amp;amp;&lt;/span&gt; simpleHTTP script to assist with theme and site development? &lt;span class="o"&gt;(&lt;/span&gt;Y/n&lt;span class="o"&gt;)&lt;/span&gt; y
+&amp;gt; Do you want to upload your website using FTP? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
+&amp;gt; Do you want to upload your website using SSH? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
+&amp;gt; Do you want to upload your website using Dropbox? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
+&amp;gt; Do you want to upload your website using S3? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
+&amp;gt; Do you want to upload your website using Rackspace Cloud Files? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; n
+&amp;gt; Do you want to upload your website using GitHub Pages? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
+&amp;gt; Is this your personal page &lt;span class="o"&gt;(&lt;/span&gt;username.github.io&lt;span class="o"&gt;)&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
+Done. Your new project is available at /caminho/para/humrochagf.github.io
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Inicialize um repositório neste diretório e suba os dados para a &lt;strong&gt;branch pelican&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git init
+$ git remote add origin git@github.com:humrochagf/humrochagf.github.io.git
+$ git checkout -b pelican
+$ git add .
+$ git commit -m &lt;span class="s1"&gt;'iniciando branch pelican'&lt;/span&gt;
+$ git push origin pelican
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para publicar o conteúdo na &lt;strong&gt;branch master&lt;/strong&gt; é necessário o módulo ghp-import:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install ghp-import
+$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'pelican==3.6\nghp-import'&lt;/span&gt; &amp;gt; requirements.txt
+$ git add requirements.txt
+$ git commit -m &lt;span class="s1"&gt;'adicionando requirements'&lt;/span&gt;
+$ git push origin pelican
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Publicando o blog:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ make github
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="figure align-center" style="width: 1117px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/blog.png"&gt;&lt;img alt="Primeira publicação do blog" src="http://grupydf.github.io/images/gh-pelican-travis/blog.png" style="width: 1117px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Para publicar no caso da página de projeto altere o conteúdo da variável &lt;tt class="docutils literal"&gt;GITHUB_PAGES_BRANCH&lt;/tt&gt; do makefile de &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; para &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;gh-pages&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Agora que o nosso blog está rodando no gh pages vamos automatizar a tarefa de geração das páginas para poder alterar o conteúdo do blog e fazer novas postagens sem precisar estar um uma máquina com o ambiente do pelican configurado.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="travis-ci"&gt;
+&lt;h2&gt;Travis-CI&lt;/h2&gt;
+&lt;p&gt;O Travis-CI é uma plataforma de Integração Contínua que monta e testa projetos hospedados no github e será nossa ferramenta para automatizar a montagem das páginas do blog.&lt;/p&gt;
+&lt;p&gt;A Primeira coisa a ser feita é ir ao &lt;a class="reference external" href="https://travis-ci.org"&gt;Travis-CI&lt;/a&gt; e habilitar seu repositório.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 445px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/travis-repo1.png"&gt;&lt;img alt="Habilitando repositório no travis" src="http://grupydf.github.io/images/gh-pelican-travis/travis-repo1.png" style="width: 445px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Em seguida vá nas configurações do repositório no travis e desabilite a opção &lt;strong&gt;Build pull requests&lt;/strong&gt; para seu blog não ser atualizado quando alguém abrir um pull request e habilite o &lt;strong&gt;Build only if .travis.yml is present&lt;/strong&gt; para que somente a branch que possuir o arquivo .travis.yml gerar atualização no blog.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 703px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/travis-repo2.png"&gt;&lt;img alt="Configurando remositório no travis" src="http://grupydf.github.io/images/gh-pelican-travis/travis-repo2.png" style="width: 703px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;O próximo passo é criar uma &lt;strong&gt;Deploy Key&lt;/strong&gt; para que o travis possa publicar conteúdo no github. Para isso gere uma chave ssh na raiz do repositório local:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ssh-keygen -f publish-key
+Generating public/private rsa key pair.
+Enter passphrase &lt;span class="o"&gt;(&lt;/span&gt;empty &lt;span class="k"&gt;for&lt;/span&gt; no passphrase&lt;span class="o"&gt;)&lt;/span&gt;:
+Enter same passphrase again:
+Your identification has been saved in publish-key.
+Your public key has been saved in publish-key.pub.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Criada a chave vamos cifrar usando a ferramenta &lt;a class="reference external" href="https://github.com/travis-ci/travis.rb"&gt;Travis-CLI&lt;/a&gt; (certifique-se de que esteja instalada em sua máquina) para poder publicar em nosso repositório sem expor o conteúdo da chave privada:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ travis encrypt-file publish-key
+Detected repository as humrochagf/humrochagf.github.io, is this correct? &lt;span class="p"&gt;|&lt;/span&gt;yes&lt;span class="p"&gt;|&lt;/span&gt; yes
+encrypting publish-key &lt;span class="k"&gt;for&lt;/span&gt; humrochagf/humrochagf.github.io
+storing result as publish-key.enc
+storing secure env variables &lt;span class="k"&gt;for&lt;/span&gt; decryption
+
+Please add the following to your build script &lt;span class="o"&gt;(&lt;/span&gt;before_install stage in your .travis.yml, &lt;span class="k"&gt;for&lt;/span&gt; instance&lt;span class="o"&gt;)&lt;/span&gt;:
+
+    openssl aes-256-cbc -K &lt;span class="nv"&gt;$encrypted_591fe46d4973_key&lt;/span&gt; -iv &lt;span class="nv"&gt;$encrypted_591fe46d4973_iv&lt;/span&gt; -in publish-key.enc -out publish-key -d
+
+Pro Tip: You can add it automatically by running with --add.
+
+Make sure to add publish-key.enc to the git repository.
+Make sure not to add publish-key to the git repository.
+Commit all changes to your .travis.yml.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como dito no resultado do comando podemos adicionar a opção &lt;cite&gt;--add&lt;/cite&gt; para já adicionar as informações no &lt;cite&gt;.travis.yml&lt;/cite&gt;, porém, para evitar de sobrescrever algum comando que venha existir no seu arquivo é recomendado editar manualmente.&lt;/p&gt;
+&lt;p&gt;Em nosso caso iremos criar o arquivo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ touch .travis.yml
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E adicionar o seguinte conteúdo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;sudo&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;false&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;branches&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l l-Scalar l-Scalar-Plain"&gt;only&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;pelican&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;language&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;python&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;before_install&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+&lt;span class="c1"&gt;# troque a linha abaixo pelo resultado do comando:&lt;/span&gt;
+&lt;span class="c1"&gt;# travis encrypt-file publish-key&lt;/span&gt;
+&lt;span class="c1"&gt;# porém mantenha o final:&lt;/span&gt;
+&lt;span class="c1"&gt;# -out ~/.ssh/publish-key -d&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;openssl aes-256-cbc -K $encrypted_591fe46d4973_key -iv $encrypted_591fe46d4973_iv -in publish-key.enc -out ~/.ssh/publish-key -d&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;chmod u=rw,og= ~/.ssh/publish-key&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo "Host github.com" &amp;gt;&amp;gt; ~/.ssh/config&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;echo "  IdentityFile ~/.ssh/publish-key" &amp;gt;&amp;gt; ~/.ssh/config&lt;/span&gt;
+&lt;span class="c1"&gt;# substitua git@github.com:humrochagf/humrochagf.github.io.git&lt;/span&gt;
+&lt;span class="c1"&gt;# pelo endereço de acesso ssh do seu repositório&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git remote set-url origin git@github.com:humrochagf/humrochagf.github.io.git&lt;/span&gt;
+&lt;span class="c1"&gt;# Caso esteja montando a página de projeto troque master:master&lt;/span&gt;
+&lt;span class="c1"&gt;# por gh-pages:gh-pages&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;git fetch origin -f master:master&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;install&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;pip install --upgrade pip&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;pip install -r requirements.txt&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;script&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt;
+&lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;make github&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Removemos em seguida a chave privada não cifrada para não correr o risco de publicar no repositório:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rm publish-key
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;ATENÇÃO&lt;/strong&gt;: Em hipótese alguma adicione o arquivo &lt;strong&gt;publish-key&lt;/strong&gt; em seu repositório, pois ele contém a chave privada não cifrada que tem poder de commit em seu repositório, e não deve ser publicada. Adicione somente o arquivo &lt;strong&gt;publish-key.enc&lt;/strong&gt;. Se você adicionou por engano refaça os passos de geração da chave e cifração para gerar uma chave nova.&lt;/p&gt;
+&lt;p&gt;Agora adicionaremos os arquivos no repositório:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add .travis.yml publish-key.enc
+$ git commit -m &lt;span class="s1"&gt;'adicionando arquivos do travis'&lt;/span&gt;
+$ git push origin pelican
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para liberar o acesso do travis adicionaremos a deploy key no github com o conteúdo da chave pública &lt;strong&gt;publish-key.pub&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 213px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/deploy-key.png"&gt;&lt;img alt="Adicionando a deploy key no github" src="http://grupydf.github.io/images/gh-pelican-travis/deploy-key.png" style="width: 213px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Pronto, agora podemos publicar conteúdo em nosso blog sem a necessidade de ter o pelican instalado na máquina:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 596px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem1.png"&gt;&lt;img alt="Fazendo a primeira postagem" src="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem1.png" style="width: 596px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Que o travis irá publicar para você:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 1119px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem2.png"&gt;&lt;img alt="Blog com a primeira postagem" src="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem2.png" style="width: 1119px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Caso você tenha animado de criar seu blog pessoal e quer saber mais sobre pelican você pode acompanhar a série do &lt;a class="reference external" href="http://mindbending.org/pt/series/migrando-para-o-pelican"&gt;Mind Bending&lt;/a&gt; sobre o assunto.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="gh-pages"></category><category term="pelican"></category><category term="travis-ci"></category><category term="web"></category></entry><entry><title>Resolvendo o Problema XY</title><link href="http://grupydf.github.io/blog/resolvendo-o-problema-xy" rel="alternate"></link><published>2015-10-21T08:35:00-02:00</published><updated>2015-10-21T08:35:00-02:00</updated><author><name>Humberto Rocha</name></author><id>tag:grupydf.github.io,2015-10-21:blog/resolvendo-o-problema-xy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal, tudo bom?&lt;/p&gt;
+&lt;p&gt;Esta postagem teve como base o episódio de um podcast que acompanho, o &lt;a class="reference external" href="http://developertea.com/episodes/18468/"&gt;Developer Tea&lt;/a&gt;, e minha percepção de que este é um problema recorrente em nosso dia a dia como programador, em comunidades e no trabalho.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TLDR:&lt;/strong&gt; Ao descrever um problema tente contextualizar ao máximo, explicitar sua intenção e evite o jargão técnico se possível.&lt;/p&gt;
+&lt;p&gt;O problema XY acontece quando queremos resolver um problema X e achamos que Y é a melhor maneira de resolver. Então, perguntamos sobre Y sem ao menos mencionar X.&lt;/p&gt;
+&lt;p&gt;Um dialogo simples mostra esta dinâmica:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Brian:&lt;/strong&gt; Cara, você sabe como eu faço para recuperar os três últimos caracteres do nome de um arquivo?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reg:&lt;/strong&gt; Se você tiver ele em uma variável é só tirar uma fatia &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;arquivo[:-3]&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reg:&lt;/strong&gt; Mas pra que você quer fazer isso?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reg:&lt;/strong&gt; Você está tentando recuperar a extensão do arquivo?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Brian:&lt;/strong&gt; Sim&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reg:&lt;/strong&gt; Porque não me disse antes?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reg:&lt;/strong&gt; Desta forma você terá problemas com extensões que não possuem 3 caracteres.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Reg:&lt;/strong&gt; Somente capturar os 3 últimos caracteres não resolve seu problema.&lt;/p&gt;
+&lt;p&gt;Discussões como essa acontecem o tempo todo em comunidades, e é muito comum que ela se estenda por muito tempo, deixando as pessoas aborrecidas por não conseguirem efetivamente ajudar ou frustradas por não chegarem a uma solução para o real problema.&lt;/p&gt;
+&lt;div class="section" id="legal-mas-como-eu-evito-este-tipo-de-problema"&gt;
+&lt;h2&gt;Legal, mas como eu evito este tipo de problema?&lt;/h2&gt;
+&lt;p&gt;A primeira coisa que precisamos fazer é contextualizar o nosso problema e evitar o 'tecniquês' ao máximo na hora de descrevê-lo. Se estamos tentando capturar as inciais do nome de um usuário para fazer abreviação descreva seu problema desta forma, não saia dizendo que você quer capturar os primeiros caracteres de algumas strings e concatená-las com ponto.&lt;/p&gt;
+&lt;p&gt;Quando informamos o contexto, permitimos que as pessoas ajudem com o problema, não com detalhes específicos de uma forma de implementação que no final pode acabar não o resolvendo. O próprio caso de abreviação tem questões como as formas de tratamento (sr, sra, srta, etc) que podem passar batido quando fora de contexto.&lt;/p&gt;
+&lt;p&gt;Outro ponto importante é explicar sua intenção. Por exemplo, se você está tentando validar um email com expressões regulares, provavelmente muitas pessoas poderão te ajudar a chegar em uma expressão que valide o padrão de endereço de email, mas sua intenção era de saber se ele pertence a alguém. Sua solução resolve a questão de saber se o email é válido, entretanto não garante que alguém esteja o utilizando.&lt;/p&gt;
+&lt;p&gt;É bem comum, devido ao medo de menosprezarem nosso problema, querer chegar com alguma solução na cabeça antes de perguntar. De fato isso é importante e encorajado nas listas de discussão —  procure antes de perguntar, tente resolver sozinho primeiro — porém, se realizando os passos anteriores não foi encontrada a solução, é necessário voltar a raiz do problema, abandonar os pedaços de solução que temos na cabeça e partir do início sempre buscando contextualizar nosso problema e explicitar nossa intenção. Claro que detalhar o que já foi tentado pode ajudar, mas não esqueça de 'começar do começo' ao descrevê-lo.&lt;/p&gt;
+&lt;p&gt;Algumas referências em inglês sobre o assunto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://xyproblem.info/"&gt;The XY Problem&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;&lt;a class="reference external" href="http://mywiki.wooledge.org/XyProblem/"&gt;Wiki XY Problem&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Deveria haver um — e preferencialmente apenas um —  modo óbvio para fazer algo.&lt;/p&gt;
+&lt;p&gt;Embora esse modo possa não ser óbvio a princípio, a menos que você seja holandês.&lt;/p&gt;
+&lt;p class="attribution"&gt;—&lt;a class="reference external" href="https://www.python.org/dev/peps/pep-0020/"&gt;O Zen do Python&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="comunidade"></category><category term="comunicação"></category><category term="lifehack"></category></entry><entry><title>Links da Semana #2</title><link href="http://grupydf.github.io/blog/links-da-semana-2" rel="alternate"></link><published>2015-09-10T11:44:00-03:00</published><updated>2015-09-10T11:44:00-03:00</updated><author><name>Gilson Filho</name></author><id>tag:grupydf.github.io,2015-09-10:blog/links-da-semana-2</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal,&lt;/p&gt;
+&lt;p&gt;Demorei, mas vamos para a segunda edição do &lt;strong&gt;Links da Semana&lt;/strong&gt;. Hoje vamos falar de muitos tutoriais e ferramentas, então aproveitem!&lt;/p&gt;
+&lt;div class="section" id="ebook-python-3-patterns-recipes-and-idioms"&gt;
+&lt;h2&gt;1. Ebook &lt;em&gt;Python 3 Patterns, Recipes and Idioms&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Esse ebook é para quem deseja aprimorar os seus conhecimentos com Python, principalmente a versão 3, com padrões, boas práticas receitas utéis, para melhorar a qualidade do seu desenvolvimento. Coloque na sua lista de livros técnicos para ler.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://python-3-patterns-idioms-test.readthedocs.org/en/latest/"&gt;https://python-3-patterns-idioms-test.readthedocs.org/en/latest/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python-and-real-time-web"&gt;
+&lt;h2&gt;2. Python and Real-time Web&lt;/h2&gt;
+&lt;p&gt;Esse é um artigo do blog &lt;a class="reference external" href="http://mrjoes.github.io/"&gt;Eat at Joe's&lt;/a&gt; que fala sobre a relação do Python com as aplicações web real-time, como funciona, e como integrar com as aplicações WSGI. Além disso, traz uma introdução dos frameworks assíncronos em Python, e de algumas ferramentas que dão suporte a isso.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="http://mrjoes.github.io/2013/06/21/python-realtime.html"&gt;http://mrjoes.github.io/2013/06/21/python-realtime.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pesquisando-verbetes-com-dicio"&gt;
+&lt;h2&gt;3. Pesquisando verbetes com dicio&lt;/h2&gt;
+&lt;p&gt;Esse utilitário não é desenvolvido em Python (foi feito em Node.js), mas vale o espaço no post. Ele basicamente é um comando para ser usado not terminal, para que possa pesquisa (com Internet claro), verbetes no dicionário Aurélio. Segue um exemplo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ dicio computador
+&lt;span class="m"&gt;1&lt;/span&gt; O que faz cálculos &lt;span class="o"&gt;(&lt;/span&gt;pessoa ou máquina&lt;span class="o"&gt;)&lt;/span&gt;. &lt;span class="m"&gt;2&lt;/span&gt; Aparelho eletrônico usado para
+processar, guardar e tornar acessível informação de variados tipos. &lt;span class="m"&gt;3&lt;/span&gt; O me
+smo que computador pessoal. &lt;span class="m"&gt;4&lt;/span&gt; computador pessoal: computador para uso indi
+vidual, cuja construção se baseia num microprocessador.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É mais um item para sua caixa de ferramentas.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/theuves/dicio"&gt;https://github.com/theuves/dicio&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="diretivas-uteis-para-o-seu-projeto-angularjs"&gt;
+&lt;h2&gt;4. Diretivas úteis para o seu projeto AngularJS&lt;/h2&gt;
+&lt;p&gt;Hoje o AngularJS, é o framework front-end queridinho do momento, e tem suas razões, já que ele é simples de se usar, modular e traz a tão querida organização e definição de camadas para "casca" do seu sistema. Para quem não sabe, diretiva é uma das features do Angular que lhe oferece recursos para desenvolver um componente web, totalmente reutilizável. Nesse post, ele traz algumas delas que são muito interessantes, e que um dia poderá precisar. Você tem componentes de preview de arquivos PDF a editores de textos incorporados.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="http://codecondo.com/angular-js-directives/"&gt;http://codecondo.com/angular-js-directives/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pypi-client-acessando-informacoes-de-pacotes-via-linha-de-comando"&gt;
+&lt;h2&gt;5. PyPi Client - Acessando informações de pacotes via linha de comando&lt;/h2&gt;
+&lt;p&gt;Ele é um outro utilitário, para que possa acessar informações do PyPi como informações de pacote, estatísticas de download ou acessar documentação do pacote que pesquisou, em uma interface de linha de comando. Abaixo é um exemplo de como pode verificar informações do matplotlib:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pypi info matplotlib
+
+&lt;span class="nv"&gt;matplotlib&lt;/span&gt;
+&lt;span class="o"&gt;==========&lt;/span&gt;
+Python plotting package
+
+Latest release:   &lt;span class="m"&gt;1&lt;/span&gt;.3.1
+
+Last day:           &lt;span class="m"&gt;2&lt;/span&gt;,015
+Last week:         &lt;span class="m"&gt;16&lt;/span&gt;,744
+Last month:        &lt;span class="m"&gt;59&lt;/span&gt;,989
+
+Author:   John D. Hunter, Michael Droettboom
+Author email: mdroe@stsci.edu
+
+PyPI URL:  http://pypi.python.org/pypi/matplotlib
+Home Page: http://matplotlib.org
+
+License: BSD
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/sloria/pypi-cli"&gt;https://github.com/sloria/pypi-cli&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="mastering-django-atualizado-para-versao-1-8"&gt;
+&lt;h2&gt;6. Mastering Django atualizado para versão 1.8&lt;/h2&gt;
+&lt;p&gt;O Mastering Django é um famoso ebook, por ensinar o uso do framework Django, e agora foi atualizado para a versão 1.8 da ferramenta. Para quem deseja aprender a usar Django, fica a dica.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="http://www.masteringdjango.com"&gt;http://www.masteringdjango.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fonte: &lt;a class="reference external" href="https://github.com/big-nige/djangobook-Updated-to-1.8"&gt;https://github.com/big-nige/djangobook-Updated-to-1.8&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="awesome-django-as-aplicacoes-django-selecionadas-a-mao"&gt;
+&lt;h2&gt;7. Awesome Django: As aplicações Django selecionadas a mão&lt;/h2&gt;
+&lt;p&gt;Esse repositório traz uma lista de várias apps para usar nos seus projetos com Django. É organizado por categorias, cada uma define o objetivo das aplicações selecionadas. É uma curadoria de ferramentas que um dia poderá precisar.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/rosarior/awesome-django"&gt;https://github.com/rosarior/awesome-django&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="exemplo-de-chat-usando-tornado-websockets-mongodb"&gt;
+&lt;h2&gt;8. Exemplo de chat usando Tornado + WebSockets + MongoDB&lt;/h2&gt;
+&lt;p&gt;Esse repositório é um projeto de exemplo, um chat, que é feito usando as tecnologias: Websockets, Tornado, MongoDB e Motor.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/arruda/Tornado-WS-Assincrono"&gt;https://github.com/arruda/Tornado-WS-Assincrono&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="interpolacao-de-string-no-python-3"&gt;
+&lt;h2&gt;9. Interpolação de String no Python 3&lt;/h2&gt;
+&lt;p&gt;Foi aprovado uma nova PEP, voltado para interpolação de String. Chamado de PEP 0498, ela traz o &lt;cite&gt;f-string&lt;/cite&gt; que oferece mais uma opção no tratamento das strings do seu código Python.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://www.python.org/dev/peps/pep-0498/"&gt;https://www.python.org/dev/peps/pep-0498/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="criando-queries-sql-com-jinja2"&gt;
+&lt;h2&gt;10. Criando queries SQL com Jinja2&lt;/h2&gt;
+&lt;p&gt;Pode parecer estranho, mas a idéia &lt;a class="reference external" href="https://github.com/semirook"&gt;Roman Zaiev&lt;/a&gt; é interessante e vale testar. Ele criou uma ferramenta em que você usa o Jinja2 para contruir queries variadas, com o SQL, e depois utilizadas no seu projeto somente com Python. O próprio README do projeto vai explicar melhor, então acesse.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/semirook/snaql"&gt;https://github.com/semirook/snaql&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="aprendendo-padroes-de-projetos-com-python"&gt;
+&lt;h2&gt;11. Aprendendo padrões de projetos com Python&lt;/h2&gt;
+&lt;p&gt;E por último, esse projeto traz vários códigos em Python, implementando cada padrão de projeto usado hoje no desenvolvimento. Vários livros que encontramos, usam C++ ou Java para exemplificar, e agora com esse repositório, você entenderá melhor o que cada padrão sugere.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/faif/python-patterns"&gt;https://github.com/faif/python-patterns&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Fico por aqui. Até o próximo post!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="links"></category><category term="utilidades"></category><category term="dicas"></category></entry><entry><title>Links da Semana #1</title><link href="http://grupydf.github.io/blog/links-da-semana-1" rel="alternate"></link><published>2015-09-02T11:35:00-03:00</published><updated>2015-09-02T11:35:00-03:00</updated><author><name>Gilson Filho</name></author><id>tag:grupydf.github.io,2015-09-02:blog/links-da-semana-1</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal,&lt;/p&gt;
+&lt;p&gt;Nós pensamos sobre a série de links interessantes, no grupo de discussão da comunidade do Telegram e no Slack (que aliás, pode participar solicitando o acesso &lt;a class="reference external" href="https://grupydf.herokuapp.com/"&gt;aqui&lt;/a&gt;). Toda ferramenta, dica e informações interessantes sobre desenvolvimento e afins, que compartilhamos, vamos colocar aqui. Cada semana, vamos postar várias coisas legais.&lt;/p&gt;
+&lt;p&gt;Nessa semana são essas:&lt;/p&gt;
+&lt;div class="section" id="actor-messenger"&gt;
+&lt;h2&gt;1. Actor Messenger&lt;/h2&gt;
+&lt;p&gt;Existem inúmeros programas de mensagens instantaneas, e os mais usados hoje são Whatsapp, Telegram e Viber. Alguns seguem a filosofia do software livre, disponibilizando o código fonte de toda a estrutura como Actor. Ele é bem parecido com o Telegram, com a diferença de não ter limites nos grupos que for criar, entre outros pontos. É interessante ver que temos uma opção totalmente aberta, e que pode ser adaptada para qualquer necessidade, como dentro de uma empresa por exemplo.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://actor.im/"&gt;https://actor.im/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="biblioteca-pep8"&gt;
+&lt;h2&gt;2. Biblioteca pep8&lt;/h2&gt;
+&lt;p&gt;Para quem programa com Python, sabe que a PEP8 é uma das mais importantes boas práticas, no desenvolvimento de soluções com a linguagem. Assim, existe um programa que pode ser uma ferramenta importante para validar todas as premissas dessa PEP, e apontar em quais linhas precisam ser corrigidas.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://pypi.python.org/pypi/pep8"&gt;https://pypi.python.org/pypi/pep8&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Documentação: &lt;a class="reference external" href="https://media.readthedocs.org/pdf/pep8/latest/pep8.pdf"&gt;https://media.readthedocs.org/pdf/pep8/latest/pep8.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="randomcolor-gerando-cores-randomicos-de-forma-simples"&gt;
+&lt;h2&gt;3. randomColor: Gerando cores randômicos de forma simples&lt;/h2&gt;
+&lt;p&gt;Uma das coisas que acabei precisando um dia, é uma forma de gerar uma lista de cores randômicas para uma funcionalidade que fiz. As soluções que encontrei na Internet, envolvia uma lista predeterminada de RGBs e usando números aleatórios para compor vários hexadecimais e chegar aonde queria. Por acaso, acessando a rede social dos desenvolvedores (Github!), encontrei esse projeto bem interessante. Ele faz a mesma coisa, mas de forma mais elegante e te oferece opções como por exemplo: retornar lista randomica de contrastes, selecionando uma cor somente, formatos diferentes (rgb, hsl, etc), e pode especificar uma quantidade limitada. É bem interessante, vale dar uma olhada:&lt;/p&gt;
+&lt;p&gt;Demo: &lt;a class="reference external" href="http://llllll.li/randomColor"&gt;http://llllll.li/randomColor&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Repositório: &lt;a class="reference external" href="https://github.com/davidmerfield/randomColor"&gt;https://github.com/davidmerfield/randomColor&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="utilizando-shared-objects-no-python"&gt;
+&lt;h2&gt;4. Utilizando Shared Objects no Python&lt;/h2&gt;
+&lt;p&gt;A linguagem Python tem uma de suas características e define parte de sua boa fama, que ela é versátil por causa das suas bibliotecas padrão, dentre elas, o &lt;strong&gt;ctype&lt;/strong&gt;. Nesse post, o autor mostra de forma bem simples como carregar uma lib desenvolvida em C, e executar suas funções no código Python.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://blog.butecopensource.org/utilizando-shared-objects-no-python/"&gt;https://blog.butecopensource.org/utilizando-shared-objects-no-python/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="startssl-certificados-gratuitos-e-suas-peculiaridades"&gt;
+&lt;h2&gt;5. StartSSL: certificados gratuitos e suas peculiaridades&lt;/h2&gt;
+&lt;p&gt;Não é voltado ao Python, mas no desenvolvimento web, sabemos que é importante colocar como premisa o uso do HTTP com certificados digitais, para assim ser rodado pelo HTTPS. Nesse post o author mostra uma boa opção para usar certificados SSL/TLS de forma gratuita, mas para uso pessoal, pela marca &lt;a class="reference external" href="https://www.startssl.com/"&gt;StartSSL&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://blog.myhro.info/2015/08/startssl-certificados-gratuitos-e-suas-peculiaridades/"&gt;https://blog.myhro.info/2015/08/startssl-certificados-gratuitos-e-suas-peculiaridades/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="mulheres-na-tecnologia"&gt;
+&lt;h2&gt;6. Mulheres na Tecnologia&lt;/h2&gt;
+&lt;p&gt;Na comunidade GruPyDF, existem várias mulheres ativas na área de software livre e também no /MNT (Mulheres na Tecnologia). É um grupo formato por maioria mulheres que tem o objetivo de fomentar o reconhecimento da mulher na área de TI. A nossa querida Tania Andrea participou no ano de 2013 em um dos seus encontros. Para mais informações acesse o site da /MNT:&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="http://mulheresnatecnologia.org/"&gt;http://mulheresnatecnologia.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Sobre o encontro: &lt;a class="reference external" href="http://mulheresnatecnologia.org/encontro2015/?page_id=2"&gt;http://mulheresnatecnologia.org/encontro2015/?page_id=2&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="guia-vegano-de-brasilia"&gt;
+&lt;h2&gt;7. Guia Vegano de Brasília&lt;/h2&gt;
+&lt;p&gt;Dentro dos nossos "tutupys", sempre discutimos vários assuntos, e um deles é sobre uma boa alimentação. O Márcio Mazza, que é da comunidade é vegano, e tem falado sobre o estilo de vida, como lidar com o dia a dia e como encontrar restaurantes que tenha um cardápio vegano. E no grupo do Telegram vimos esse post que mostra as mais variadas opções de escolha para comer uma comida vegetariana de qualidade.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://distritovegetal.wordpress.com/o-grande-guia-vegano-brasilia-2013/"&gt;https://distritovegetal.wordpress.com/o-grande-guia-vegano-brasilia-2013/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="variados-tipos-de-dados-disponiveis-em-sql-e-csv"&gt;
+&lt;h2&gt;8. Variados tipos de dados disponíveis em SQL e CSV&lt;/h2&gt;
+&lt;p&gt;Um pequeno achado, de várias informações que um dia poderá precisar nos seus projetos. Nos formatos SQL e CSV ele oferece os seguintes tipos de dados:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Áreas do Conhecimento – Ciências Exatas, Matemática etc.&lt;/li&gt;
+&lt;li&gt;Bancos – (Código do Banco, Descrição)&lt;/li&gt;
+&lt;li&gt;Cursos – (Cursos de Faculdade)&lt;/li&gt;
+&lt;li&gt;Distritos – (Descrição e UF)&lt;/li&gt;
+&lt;li&gt;Idiomas – (Abreviação e Descrição)&lt;/li&gt;
+&lt;li&gt;Mesoregiões – (Descrição e UF)&lt;/li&gt;
+&lt;li&gt;Microregiões – (Microregião e UF)&lt;/li&gt;
+&lt;li&gt;Municípios – (Descrição e UF)&lt;/li&gt;
+&lt;li&gt;Nomes – (Nome de Pessoas e Sugestão de Sexo dos Nomes)&lt;/li&gt;
+&lt;li&gt;Países – (Sigla do País, Abreviação do Idioma, Nome do País)&lt;/li&gt;
+&lt;li&gt;Profissões – (Nome da Profissão)&lt;/li&gt;
+&lt;li&gt;SubDistrito – (Descrição e UF)&lt;/li&gt;
+&lt;li&gt;TipoLogradouro – (Descrição – Ex: Avenida, Rua etc.)&lt;/li&gt;
+&lt;li&gt;Unidades da Federação – (Descrição, Sigla e Região do Brasil)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Quem tiver interessado é só fazer o download:&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="http://gabrielrb.net/2011/10/18/dados-prontos-em-formato-sql-e-csv/"&gt;http://gabrielrb.net/2011/10/18/dados-prontos-em-formato-sql-e-csv/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="hangout-de-django-angularjs-com-tony-lampada"&gt;
+&lt;h2&gt;9. Hangout de Django + AngularJS com Tony Lampada&lt;/h2&gt;
+&lt;p&gt;Essa semana houve um hangout com Tony Lampada, que criou vários cursos, dentre eles o de AngularJS. Nesse encontro, ele ensina a usar framework Javascript juntamente com o Django, para criar o seu back-end. Vale dar uma olhada.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="http://tonylampada.github.io/randomstuff/djangular3.html"&gt;http://tonylampada.github.io/randomstuff/djangular3.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="live-coding-de-uma-mesma-aplicacao-usando-varios-frameworks-web"&gt;
+&lt;h2&gt;10. Live Coding de uma mesma aplicação, usando vários frameworks web&lt;/h2&gt;
+&lt;p&gt;O pessoal do &lt;a class="reference external" href="https://twitter.com/fullstackpython"&gt;Full Stack Python&lt;/a&gt; no Twitter, mandou esse link de um video na livecoding.tv sobre o desenvolvimento de várias aplicações, mas usando a mesma regra de negócios (sistema de contatos) mas com vários frameworks web em python. Para quem quer ter uma melhor comparação de qual ferramenta usar, esse vídeo pode ser uma das várias fontes de pesquisa, antes de iniciar o seu projeto.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://www.livecoding.tv/video/comparing-python-web-frameworks-5/"&gt;https://www.livecoding.tv/video/comparing-python-web-frameworks-5/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Repositório: &lt;a class="reference external" href="https://github.com/makaimc/pycontacts"&gt;https://github.com/makaimc/pycontacts&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="desenvolvimento-com-bottle-parte-1"&gt;
+&lt;h2&gt;11. Desenvolvimento com Bottle - Parte 1&lt;/h2&gt;
+&lt;p&gt;O blog &lt;a class="reference external" href="https://realpython.com"&gt;Real Python&lt;/a&gt; sempre colocar ótimos posts sobre ferramentas python. Recentemente colocaram a primeira parte do "Developing with Bottle", que é um microframework web. Quem tiver o interesse, ele ensina os primeiros passos de como usá-la.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://realpython.com/blog/python/developing-with-bottle-part-1"&gt;https://realpython.com/blog/python/developing-with-bottle-part-1&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="manual-de-organizacao-do-django-girls"&gt;
+&lt;h2&gt;12. Manual de organização do Django Girls&lt;/h2&gt;
+&lt;p&gt;A galera do &lt;a class="reference external" href="https://djangogirls.org/niteroi/"&gt;Django Girls Niterói&lt;/a&gt; fez a tradução do Manual de Organização do Django Girls, que oferece dicas e orientação para você fazer o evento na sua cidade. Para quem não conhece, o &lt;a class="reference external" href="djangogirls.org"&gt;Django Girls&lt;/a&gt; é uma iniciativa de organizar pequenos workshops para promover a cultura do desenvolvimento e programação web para mulheres que tenham o desejo de aprender, usando as tecnologias Python e Django.&lt;/p&gt;
+&lt;p&gt;Link: &lt;a class="reference external" href="https://github.com/pyladies-brazil/organizer-manual/tree/master/pt-br"&gt;https://github.com/pyladies-brazil/organizer-manual/tree/master/pt-br&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Então é isso. Até a próxima semana!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="links"></category><category term="utilidades"></category><category term="dicas"></category></entry><entry><title>10º TutuPy</title><link href="http://grupydf.github.io/blog/10o-tutupy" rel="alternate"></link><published>2015-08-21T18:14:00-03:00</published><updated>2015-08-21T18:14:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-08-21:blog/10o-tutupy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Novamente, nesta sexta-feira, dia 21 de Agosto de 2015, os membros do Grupy-DF realizaram o encontro quinzenal da comunidade. Em um número mais acanhado (apenas 9 integrantes), tivemos uma longa espera pelas picanhas e tutus, tempo este que nos permitiu constatar a queda na qualidade do nosso "ponto de encontro" e levantar possíveis alternativas.&lt;/p&gt;
+&lt;p&gt;A parte boa é que saudamos o criado da linguagem tomando uma cerveja de qualidade, compatriota de Guido van Rossum.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 442px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/heineken.jpg"&gt;&lt;img alt="Cerveja Heineken" src="http://grupydf.github.io/images/tutupy/heineken.jpg" style="width: 442px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Neste tutupy foram abordados os seguintes assuntos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;"&lt;em&gt;Conteinerização&lt;/em&gt;" para o site de associados da APyB;&lt;/li&gt;
+&lt;li&gt;Dificuldades na organização de eventos;&lt;/li&gt;
+&lt;li&gt;Batalhas de robôs (&lt;a class="reference external" href="http://m.tecmundo.com.br/robotica/84976-batalha-entre-mega-robos-realidade.htm"&gt;EUA vs Japão&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;Compras de adesivo;&lt;/li&gt;
+&lt;li&gt;Criação de adesivos para o GrupyDF no &lt;a class="reference external" href="https://www.stickermule.com/"&gt;StickerMule&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Alimentação vegetariana e vegana (abraço &lt;a class="reference external" href="http://brunorocha.org/"&gt;Bruno Rocha&lt;/a&gt;!);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="figure align-center" style="width: 1280px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/decimo-tutupy.jpg"&gt;&lt;img alt="10º Tutupy" src="http://grupydf.github.io/images/tutupy/decimo-tutupy.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;p class="caption"&gt;Membros presentes no 10º TutuPy&lt;/p&gt;
+&lt;div class="legend"&gt;
+Da esquerda pra direita, Starlone Passos, Marcio Mazza, Mariana, Pedro Henrique, Magnun Leno, Sergio Oliveira, Gilson Filho, Gabriel Miranda e Tania Andrea.&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="onde"&gt;
+&lt;h2&gt;Onde?&lt;/h2&gt;
+&lt;p&gt;Nosso encontro quinzenal ocorre no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul).
+Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" style="border:0" width="100%"&gt;&lt;/iframe&gt;&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="encontro"></category><category term="evento"></category><category term="tutu"></category><category term="restaurante"></category><category term="marambaia"></category></entry><entry><title>1º Sprint do Grupy-DF</title><link href="http://grupydf.github.io/blog/1o-sprint-do-grupy-df" rel="alternate"></link><published>2015-07-23T03:19:00-03:00</published><updated>2015-07-23T03:19:00-03:00</updated><author><name>Humberto Rocha</name></author><id>tag:grupydf.github.io,2015-07-23:blog/1o-sprint-do-grupy-df</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;No dia 11 de julho de 2015, nos reunimos na casa dos pais da &lt;a class="reference external" href="https://twitter.com/taniaandrea_com"&gt;Tânia&lt;/a&gt; para realizar
+o Primeiro Sprint do Grupy-DF. Após uma bela dose de café recapitulamos os temas
+propostos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Contribuir com o site das &lt;a class="reference external" href="https://github.com/pyladies-brazil/br-pyladies/issues"&gt;PyLadies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Colocar no ar os sites de evento das PythonBrasil anteriores&lt;/li&gt;
+&lt;li&gt;Ajudar no desenvolvimento das coisas pendentes da PythonBrasil[11]&lt;/li&gt;
+&lt;li&gt;Contribuir com a tradução dos &lt;a class="reference external" href="https://www.transifex.com/projects/p/django-docs/"&gt;docs do Django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Após esta breve recapitulação entramos em contato com &lt;a class="reference external" href="https://twitter.com/FilipeCifali"&gt;Filipe&lt;/a&gt; para ficar a par
+da organização e acessos aos servidores da PythonBrasil.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 1116px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/sprint/2015-07-11-hangout-filipe.jpg"&gt;&lt;img alt="Hangout com o Filipe" src="http://grupydf.github.io/images/sprint/2015-07-11-hangout-filipe.jpg" style="width: 1116px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Paralelo ao hangout com o Filipe, descobrimos que o site do PyLadies está em Ruby,
+o que nos levou, após muita pesquisa, ao aprendizado de como preparar um ambiente
+de desenvolvimento para futuras contribuições para o projeto.&lt;/p&gt;
+&lt;p&gt;Seguindo em frente abrimos uma chamada no Skype com o &lt;a class="reference external" href="https://twitter.com/rudaporto"&gt;Rudá&lt;/a&gt; na qual, depois de muito
+suor, aprendizado e compilação manual de versões pré-históricas do python, conseguimos
+colocar no ar praticamente todos os sites Plone que estavam fora do ar.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 670px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/sprint/2015-07-11-skype-ruda.jpg"&gt;&lt;img alt="Skype com o Rudá" src="http://grupydf.github.io/images/sprint/2015-07-11-skype-ruda.jpg" style="width: 670px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Segue abaixo a lista dos sites funcionando até o momento desta publicação e seus
+respectivos links provisórios:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;PythonBrasil[7] - &lt;a class="reference external" href="http://plone.python.org.br:8045/pythonbrasil"&gt;http://plone.python.org.br:8045/pythonbrasil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Associação Python Brasil - &lt;a class="reference external" href="http://plone.python.org.br:8045/fundacao"&gt;http://plone.python.org.br:8045/fundacao&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PythonBrasil[9] OLD - &lt;a class="reference external" href="http://plone.python.org.br:8045/pythonbrasil2013"&gt;http://plone.python.org.br:8045/pythonbrasil2013&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PythonBrasil[9] ATUALIZADA - pythonbrasil - &lt;a class="reference external" href="http://plone.python.org.br:8080/Plone/pythonbrasil"&gt;http://plone.python.org.br:8080/Plone/pythonbrasil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PloneConf 2013 ATUALIZADA - ploneconf - &lt;a class="reference external" href="http://plone.python.org.br:8080/Plone/ploneconf"&gt;http://plone.python.org.br:8080/Plone/ploneconf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PythonBrasil (da 1 a 6) - &lt;a class="reference external" href="http://plone.python.org.br:8120/pycon"&gt;http://plone.python.org.br:8120/pycon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Além disso outros assuntos como o nome da conta do youtube e alguns problemas
+da wiki foram levantados.&lt;/p&gt;
+&lt;p&gt;Se você curtiu e quer participar do próximo sprint ou evento do Grupy-DF acompanhe nossos
+&lt;a class="reference external" href="/comunidade"&gt;canais de comunicação&lt;/a&gt; e ajude a fortalecer esta comunidade.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="sprint"></category><category term="encontro"></category><category term="evento"></category></entry><entry><title>Como Publicar No Blog Do Grupy-Df</title><link href="http://grupydf.github.io/blog/como-publicar-no-blog-do-grupy-df" rel="alternate"></link><published>2015-07-22T14:57:00-03:00</published><updated>2015-07-22T14:57:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-22:blog/como-publicar-no-blog-do-grupy-df</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal! Recentemente &lt;a class="reference external" href="/blog/bem-vindos-ao-blog-do-grupy-df/"&gt;inauguramos o site do Grupy-DF&lt;/a&gt; e alguns membros do grupo estão começando a produzir conteúdos. Como eu fui o "maluco" a propor essa plataforma, achei que seria justo escrever um tutorial para aqueles que desconhecem um pouco o &lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;. Então preparem seus cérebros pois vamos aprender desde &lt;em&gt;virtual env&lt;/em&gt; até versionamento de código!&lt;/p&gt;
+&lt;div class="section" id="o-que-e-o-pelican"&gt;
+&lt;h2&gt;O Que é o Pelican&lt;/h2&gt;
+&lt;p&gt;Primeiramente o Pelican é um gerador de site estático multiplataforma (GNU/Linux, Mac OS e Windows), isto é, nosso site não possui nenhum servidor de aplicação (&lt;em&gt;backend&lt;/em&gt;) em execução, ele é composto apenas de arquivos HTML, CSS e JavaScript. Mas por que isso é vantajoso? Eu já &lt;a class="reference external" href="http://mindbending.org/pt/adeus-wordpress"&gt;escrevi sobre isso no meu site&lt;/a&gt;, mas em resumo ganhamos em performance, hospedagem, segurança e versionamento. Como este site receberá publicações de várias pessoas, resolvemos usar as &lt;em&gt;Issues&lt;/em&gt; do GitHub para controlar os artigos que estão em processo de escrita (foi criada uma tag &lt;a class="reference external" href="https://github.com/grupydf/grupydf.github.io/labels/Artigo"&gt;Artigos&lt;/a&gt; para concentrar todos os trabalhos).&lt;/p&gt;
+&lt;p&gt;Outra vantagem de utilizarmos o site estático tendo o GitHub como "backend" é que as publicações podem ser controladas por meio de Pull Requests. Desta forma não limitamos as publicações apenas a quem tem permissão no repositório e/ou é membro do Grupy-DF. Já se estivéssemos utilizando um CMS... teríamos que criar uma conta pra esse usuário e confiar a ele acesso à nossa infraestrutura.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="obtendo-uma-copia-do-site"&gt;
+&lt;h2&gt;Obtendo Uma Cópia do Site&lt;/h2&gt;
+&lt;p&gt;Para obter uma cópia do site você vai precisar do Git. Primeiramente acesse o &lt;a class="reference external" href="https://github.com/grupydf/grupydf.github.io/"&gt;repositório do site&lt;/a&gt; e crie um fork. Uma vez criado fork, clone o site em um diretório qualquer do seu desktop:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ~
+$ git clone --recursive git@github.com:magnunleno/grupydf.github.io.git
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; grupydf.github.io
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O repositório é composto de alguns diretórios principais:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;grupydf.github.io
+│
+├── content
+│   ├── articles
+│   ├── images
+│   └── pages
+├── .plugins
+└── .themes
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É tudo muito intuitivo, o diretório &lt;tt class="docutils literal"&gt;content&lt;/tt&gt; possui todos os conteúdos, como artigos, imagens e páginas, o &lt;tt class="docutils literal"&gt;.plugins&lt;/tt&gt; contém todos os &lt;em&gt;plugins&lt;/em&gt; do Pelican, e o diretório &lt;tt class="docutils literal"&gt;themes&lt;/tt&gt; possui o tema que utilizamos no site. Mas não se preocupem, vamos nos focar apenas no diretório &lt;tt class="docutils literal"&gt;contents&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Agora temos que preparar o ambiente.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="preparando-o-ambiente"&gt;
+&lt;h2&gt;Preparando o Ambiente&lt;/h2&gt;
+&lt;p&gt;Criar o ambiente de uso do Pelican é muito simples, pra isso você vai precisar de:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Python 2.7;&lt;/li&gt;
+&lt;li&gt;VirtualEnv;&lt;/li&gt;
+&lt;li&gt;Conexão de internet;&lt;/li&gt;
+&lt;li&gt;Um terminal;&lt;/li&gt;
+&lt;li&gt;Um editor de texto;&lt;/li&gt;
+&lt;li&gt;Um navegador;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Primeiro abra um terminal e crie um &lt;em&gt;virtual environment&lt;/em&gt; para o Python 2.7 (note que este passo não é obrigatório, mas é uma boa prática):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ virtualenv --prompt &lt;span class="s2"&gt;"(grupy-df)"&lt;/span&gt; ~/venv/grupy-df
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Eu gosto de armazenar todos os meus &lt;em&gt;virtual envs&lt;/em&gt; em um mesmo diretório (neste caso &lt;tt class="docutils literal"&gt;~/venv&lt;/tt&gt;), mas você pode colocar em qualquer outro lugar. Uma vez criado este &lt;em&gt;virtual env&lt;/em&gt;, ative-o:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ . ~/venv/grupy-df/bin/activate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez ativado o &lt;em&gt;virtual env&lt;/em&gt; basta instalar todas as dependências, para isso utilize o seguinte comando:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ pip install -r requirements.txt
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Após instaladas todas as dependências faça uma compilação de teste do site com o comando &lt;tt class="docutils literal"&gt;make html&lt;/tt&gt;. Ao compilar o site é criado um diretório &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;, com o conteúdo gerado, não se preocupe, este diretório já está no &lt;tt class="docutils literal"&gt;.gitignore&lt;/tt&gt; e não deverá ser entrar no seu &lt;em&gt;commit&lt;/em&gt;. Para visualizar o site &lt;strong&gt;localmente&lt;/strong&gt; rode o comando &lt;tt class="docutils literal"&gt;make serve&lt;/tt&gt; (sua linha de comando ficará "presa" pois ela está servindo as páginas neste momento) e acesse a URL &lt;a class="reference external" href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt;. Note que todos estes comandos devem ser executados na raiz do repositório, onde se encontra o arquivo de "receitas" do make, isto é, o arquivo &lt;tt class="docutils literal"&gt;Makefile&lt;/tt&gt;. Para sair do "modo servidor" pressione &lt;tt class="docutils literal"&gt;Ctrl+C&lt;/tt&gt; e a linha de comando retornará ao normal.&lt;/p&gt;
+&lt;p&gt;Após algum tempo de uso passe a pegar o costume de sempre executar uma cadeia de comandos para evitar que arquivos de compilações prévias interfiram com a minha visualização atual: &lt;tt class="docutils literal"&gt;make clean html serve&lt;/tt&gt;. Apenas esta linha de comando limpa o conteúdo do diretório &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;, gera o site novamente, e entra no modo servidor. Novamente, para sair do &lt;em&gt;modo servidor&lt;/em&gt; pressione &lt;tt class="docutils literal"&gt;Ctrl+C&lt;/tt&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="escrevendo-seus-proprios-artigos"&gt;
+&lt;h2&gt;Escrevendo Seus Próprios Artigos&lt;/h2&gt;
+&lt;p&gt;Para escrever seus próprios artigos sugiro olhar alguns de exemplo no diretório &lt;tt class="docutils literal"&gt;contents/articles&lt;/tt&gt;. Eu pessoalmente prefiro o uso da linguagem de marcação ReStructured Text, mas o Pelican também suporta a linguagem Markdown. Um artigo tem um cabeçalho fixo, conforme abaixo (em ReST):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="gh"&gt;Como Publicar No Blog Do Grupy-Df&lt;/span&gt;
+&lt;span class="gh"&gt;=================================&lt;/span&gt;
+&lt;span class="nc"&gt;:date:&lt;/span&gt; &lt;span class="nf"&gt;2015-07-22 14:57&lt;/span&gt;
+&lt;span class="nc"&gt;:author:&lt;/span&gt; &lt;span class="nf"&gt;Magnun Leno&lt;/span&gt;
+&lt;span class="nc"&gt;:category:&lt;/span&gt; &lt;span class="nf"&gt;Tutoriais&lt;/span&gt;
+&lt;span class="nc"&gt;:tags:&lt;/span&gt; &lt;span class="nf"&gt;tutorial, tecnico, pelican, site&lt;/span&gt;
+&lt;span class="nc"&gt;:image:&lt;/span&gt; &lt;span class="nf"&gt;/images/monty-python-knights.jpg&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ou em Markdown:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Title: Como Publicar No Blog Do Grupy-Df
+Date: 2015-07-22 14:57
+Author: Magnun Leno
+Category: Tutoriais
+Tags: tutorial, tecnico, pelican, site
+Image: /images/monty-python-knights.jpg
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Novamente é tudo muito intuitivo, temos o título do artigo (a primeira linha em ReST, ou a precedida por &lt;tt class="docutils literal"&gt;Title:&lt;/tt&gt; em Markdown) seguido da data de publicação (no formato &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;YYYY-MM-DD&lt;/span&gt; HH:MM&lt;/tt&gt;). Logo abaixo temos o nome do autor, categoria e uma lista de tags. Somente a última tag é algo implementado por mim e não é nativo do Pelican.&lt;/p&gt;
+&lt;p&gt;A Tag &lt;tt class="docutils literal"&gt;:image::&lt;/tt&gt; ou &lt;tt class="docutils literal"&gt;Image:&lt;/tt&gt; (em Markdown) faz referência à imagem de capa do artigo, que também fica no "cabeçalho" do artigo, conforme print screens abaixo:&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 800px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/article-image-header.png"&gt;&lt;img alt="Article Image Header" src="http://grupydf.github.io/images/article-image-header.png" style="width: 800px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Após estas &lt;em&gt;meta-tags&lt;/em&gt;, basta escrever o texto de acordo com a linguagem de marcação adotadas: &lt;a class="reference external" href="http://sphinx-doc.org/rest.html#rst-primer"&gt;ReStructured Text&lt;/a&gt; ou &lt;a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"&gt;Markdown&lt;/a&gt;. Para mais informações a &lt;a class="reference external" href="http://docs.getpelican.com/en/3.6.0/content.html"&gt;documentação do Pelican é excelente&lt;/a&gt;!
+Uma vez concluído o artigo, emita novamente o comando &lt;tt class="docutils literal"&gt;make clean html serve&lt;/tt&gt; e acesse a URL &lt;a class="reference external" href="http://localhost:8000"&gt;http://localhost:8000&lt;/a&gt; para ver como ficou.&lt;/p&gt;
+&lt;p&gt;Lembre que o CSS deste site ainda não está completamente concluído e algumas coisas ainda precisam ser melhoradas, como por exemplo a exibição de códigos, tabelas e etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="enviando-sua-contribuicao"&gt;
+&lt;h2&gt;Enviando Sua Contribuição&lt;/h2&gt;
+&lt;p&gt;Uma vez concluído o artigo, vamos realizar o &lt;em&gt;commit&lt;/em&gt; da alteração:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add content/article/meu-artigo.rst
+$ git add content/images/minha-imagem-do-artigo.png
+$ git commit -m &lt;span class="s2"&gt;"Adicionado novo artivo 'meu-artigo'"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;em&gt;commit&lt;/em&gt; realizado com sucesso, você pode realizar o push pro seu repositório remoto (GitHub):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git push origin pelican
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta enviar um &lt;em&gt;Pull Request&lt;/em&gt; do seu repositório e os gestores do site irão aprovar sua contribuição.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="tutorial"></category><category term="tecnico"></category><category term="pelican"></category><category term="site"></category><category term="git"></category><category term="github"></category><category term="pip"></category><category term="virtual env"></category></entry><entry><title>8º TutuPy</title><link href="http://grupydf.github.io/blog/8o-tutupy" rel="alternate"></link><published>2015-07-17T19:11:00-03:00</published><updated>2015-07-17T19:11:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-17:blog/8o-tutupy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;E hoje, dia 17 de Julho de 2015, os membros do Grupy-DF mais uma vez se reuniram no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). Entre uma conversa e outra, rolou muito tutu, algumas cervejas, distribuição de adesivos e livros adquiridos (ambos) em uma compra coletiva e uma longa discussão sobre os principais pontos do último &lt;em&gt;sprint&lt;/em&gt; que realizamos.&lt;/p&gt;
+&lt;p&gt;Ah, e finalmente bateram uma foto do dito cujo!&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 400px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/tutu.jpg"&gt;&lt;img alt="Tutu" src="http://grupydf.github.io/images/tutupy/tutu.jpg" style="width: 400px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Segue abaixo a listagem de tópicos discutidos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Repercussão do Sprint;&lt;/li&gt;
+&lt;li&gt;Possibilidade de unificar a base de dados das conferências;&lt;/li&gt;
+&lt;li&gt;Definição de que o Sprint pode agilizar vários pontos da APYB;&lt;/li&gt;
+&lt;li&gt;Como a comunidade pode lidar com novos integrantes;&lt;/li&gt;
+&lt;li&gt;Como funciona a diretoria da ApyBR e a votação;&lt;/li&gt;
+&lt;li&gt;Outros pontos da Python Brasil, diretoria de cada conferência e assuntos das listas;&lt;/li&gt;
+&lt;li&gt;Grupys e PUGs, formas de organização e de trabalhar as comunidades aproveitando as skills de cada um;&lt;/li&gt;
+&lt;li&gt;Logística de transporte e hospedagem pra PythonBrasil[11], incluindo a possibilidade de alugar algum lugar, negociando um pacote fechado para ficar mais barato para a galera do Grupy-DF (e de outros estados);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="figure align-center" style="width: 1280px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/oitavo-tutupy.jpg"&gt;&lt;img alt="8º Tutupy" src="http://grupydf.github.io/images/tutupy/oitavo-tutupy.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Pra fechar o nosso Mestre Zen (Decko de Brito) nos brindou com a seguinte frase célebre:&lt;/p&gt;
+&lt;blockquote&gt;
+Gentileza gera gentileza... e gente leza gera gente leza.&lt;/blockquote&gt;
+&lt;p&gt;E aí, se arrependeu de não ter ido no 8º TutuPy? Então não perca o próximo! Acompanhe o Grupy-DF nas redes sociais e apareça no próximo! Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" style="border:0" width="100%"&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="encontro"></category><category term="evento"></category><category term="tutu"></category><category term="restaurante"></category><category term="marambaia"></category></entry><entry><title>7º TutuPy</title><link href="http://grupydf.github.io/blog/7o-tutupy" rel="alternate"></link><published>2015-07-07T23:51:00-03:00</published><updated>2015-07-07T23:51:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-07:blog/7o-tutupy</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Na última sexta-feira, também conhecido como dia 03 de Julho de 2015, a trupe do Grupy-DF se reuniu mais uma vez no Restaurante Marambaia (CLS 311 BL C Loja 19 - Asa Sul). Entre um papo descontraído e outro, rolou muito tutu, algumas cervejas e foram distribuídas camisetas e réguas da PythonBrasil[9]/PloneConf 2013.&lt;/p&gt;
+&lt;div class="figure align-center" style="width: 1280px; height: auto; max-width: 100%;"&gt;
+&lt;a class="reference external image-reference" href="http://grupydf.github.io/images/tutupy/setimo-tutupy.jpg"&gt;&lt;img alt="7º Tutupy" src="http://grupydf.github.io/images/tutupy/setimo-tutupy.jpg" style="width: 1280px; height: auto; max-width: 100%;"/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Claro que não podia faltar o papo técnico! Foram discutidas as diferenças e principais características de CGI, FLASK, Django, Plone, Pyramid, web2py e etc, além de uma comparação de alguns SGBDs (Sistemas Gerenciadores de Banco de Dados) como o mongoDB, ZODB, Postgres, dentre outros. O grupo também se enveredou em uma discussão filosófica sobre intermediadores de pagamentos e equivalentes como o PagSeguro, PayPal, Moip, Iugu...&lt;/p&gt;
+&lt;p&gt;Foi planejado o adiamento do dojo em prol de um sprint de desenvolvimento que irá ocorre no dia 11 de Julho de 2015, na QI 19, Lago Sul (mais informações com a &lt;a class="reference external" href="https://twitter.com/taniaandrea_com"&gt;Tânia&lt;/a&gt;). Ficou definido esse sprint se focará nos seguintes pontos:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Desenvolver o site da Pyladies;&lt;/li&gt;
+&lt;li&gt;Colocar no ar os sites de eventos antigos da PythonBrasil;&lt;/li&gt;
+&lt;li&gt;Ajudar no desenvolvimento de coisas que estão pendentes da PythonBrasil desse ano;&lt;/li&gt;
+&lt;li&gt;Tradução de documentações do Django.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E aí, se arrependeu de não ter ido no 7º TutuPy? Então não perca o próximo! Acompanhe o Grupy-DF nas redes sociais e apareça no próximo! Você ainda tem dúvida de como chegar no TutuPy? Então aí vai um mapa...&lt;/p&gt;
+&lt;iframe allowfullscreen="" frameborder="0" height="400" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15354.824597436922!2d-47.9124539!3d-15.819441!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x931f33118f8540c7!2sMarambaia!5e0!3m2!1spt-BR!2sbr!4v1436324236699" style="border:0" width="100%"&gt;&lt;/iframe&gt;&lt;/body&gt;&lt;/html&gt;</summary><category term="encontro"></category><category term="evento"></category><category term="tutu"></category><category term="restaurante"></category><category term="marambaia"></category></entry><entry><title>Bem vindos ao blog do Grupy-DF!</title><link href="http://grupydf.github.io/blog/bem-vindos-ao-blog-do-grupy-df" rel="alternate"></link><published>2015-07-07T16:16:00-03:00</published><updated>2015-07-07T16:16:00-03:00</updated><author><name>Magnun Leno</name></author><id>tag:grupydf.github.io,2015-07-07:blog/bem-vindos-ao-blog-do-grupy-df</id><summary type="html">&lt;html&gt;&lt;body&gt;&lt;p&gt;Olá pessoal! Esse é o primeiro artigo do Blog do &lt;cite&gt;Grupy-DF&lt;/cite&gt;, consequentemente irei usá-lo para dar as boas vindas a todos e para informar como estamos procedendo com o desenvolvimento, manutenção e produção deste site. Quero ressaltar a palavra &lt;strong&gt;desenvolvimento&lt;/strong&gt;, pois este ainda não é um trabalho pronto, é um projeto aberto, colaborativo e atualizado constantemente.&lt;/p&gt;
+&lt;p&gt;Primeiramente, este site está sendo disponibilizado para vocês através do &lt;a class="reference external" href="http://pages.github.com/"&gt;GitHub Pages&lt;/a&gt; logo, todo este site é 100% HTML estático, o que nos garante um bom desempenho, um baixo consumo de recursos e uma boa tranquilidade no quesito segurança. Como vocês já podem imaginar, toda a gerência de permissões e publicações também estão sendo feitaas via GitHub, no repositórios do &lt;a class="reference external" href="http://github.com/GrupyDF/grupydf.github.io"&gt;grupydf.github.io&lt;/a&gt;, se utilizando Pull Requests e Forks. A propósito, se você encontrar qualquer erro no site, basta abrir uma &lt;a class="reference external" href="http://github.com/GrupyDF/grupydf.github.io/issues"&gt;Issue no nosso repositório&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Mas é claro que não estamos escrevendo o HTML na mão, para nos auxiliar estamos utilizando o gerador de sites estáticos escrito em Python chamado &lt;a class="reference external" href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; (v3.6 mais especificamente). Logo, se você simpatiza com o grupo (não necessariamente precisa pertencer ao Grupy-DF) e quer publicar um artigo aqui, basta escrevê-lo utilizando a linguagem de marcação ReStructured Text ou Markdown e enviar um Pull Request.&lt;/p&gt;
+&lt;p&gt;Caso esteja curioso com o &lt;em&gt;look 'n' Feel&lt;/em&gt; do site, ele foi desenvolvido utilizando o framework CSS &lt;a class="reference external" href="http://materializecss.com/"&gt;Materialize&lt;/a&gt;.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</summary><category term="blog"></category><category term="site"></category><category term="início"></category></entry></feed>

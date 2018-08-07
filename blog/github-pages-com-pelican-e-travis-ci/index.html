@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+    itemscope itemtype="http://schema.org/Blog"
+    lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta http-equiv="content-language" content="pt-br">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="O Grupy-DF é uma comunidade de usuários (profissionais e
+                      amadores) da linguagem Python, onde prezamos pela troca de
+                      conhecimento, respeito mútuo e diversidade (tanto de opinião
+                      quanto de tecnologias)."/>
+        <meta name="keywords" content="grupy-df, python, brasilia, desenvolvimento"/>
+        <meta name="author" content="Grupy-DF">
+        <meta name="generator" content="Feito com Materialize, Pelican,
+        Python e VIM. ">
+        <title>GitHub Pages com Pelican e Travis-CI | Grupy-DF</title>
+
+        <!-- Feeds -->
+            <link href="http://grupydf.github.io/blog/feeds.atom" type="application/atom+xml" rel="alternate" title="Grupy-DF ATOM Feed"/>
+            <link href="http://grupydf.github.io/blog/feeds.rss" type="application/rss+xml" rel="alternate" title="Grupy-DF RSS Feed"/>
+
+        <!-- CSS  -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="http://grupydf.github.io/theme/css/font-awesome.min.css">
+        <link href="http://grupydf.github.io/theme/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="http://grupydf.github.io/theme/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="http://grupydf.github.io/theme/css/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="http://grupydf.github.io/theme/css/pygments/perldoc.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link href="http://grupydf.github.io/theme/css/article.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <style type="text/css">
+          .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) repeat scroll 0 0%, rgba(0, 0, 0, 0) url('http://grupydf.github.io/images/banners/ponte-jk.jpg'); repeat scroll 0 0;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            overflow: hidden;
+          }
+        </style>
+        <!-- Metadata -->
+    <!-- OpenGraph -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="GitHub Pages com Pelican e Travis-CI"/>
+    <meta property="og:url" content="http://grupydf.github.io/blog/github-pages-com-pelican-e-travis-ci"/>
+    <meta property="og:site_name" content="Grupy-DF"/>
+    <meta property="og:description" content="Olá pessoal! Estou fazendo esta postagem para ajudar quem quer criar seu site no GitHub Pages usando Pelican para a criação das páginas e o..."/>
+    <meta property="og:image" content="http://grupydf.github.io/images/gh-pelican-travis/banner.png"/>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@grupydf"/>
+    <meta name="twitter:creator" content="@humrochagf"/>
+    <meta name="twitter:domain" content="grupydf.github.io"/>
+    <meta name="twitter:title" content="GitHub Pages com Pelican e Travis-CI"/>
+    <meta name="twitter:description" content="Olá pessoal! Estou fazendo esta postagem para ajudar quem quer criar seu site no GitHub Pages usando Pelican para a criação das páginas e o..."/>
+    <meta name="twitter:image:src" content="http://grupydf.github.io/images/gh-pelican-travis/banner.png"/>
+
+    <!-- Article meta -->
+    <meta property="article:author" content="Humberto Rocha"/>
+    <meta property="article:section" content="Programação Web"/>
+    <meta property="article:tag" content="gh-pages, pelican, travis-ci, web"/>
+    <meta property="article:published_time" content="2015-12-24T12:00:00-02:00"/>
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="GitHub Pages com Pelican e Travis-CI"/>
+    <meta itemprop="description" content="Olá pessoal! Estou fazendo esta postagem para ajudar quem quer criar seu site no GitHub Pages usando Pelican para a criação das páginas e o..."/>
+    <meta itemprop="image" content="http://grupydf.github.io/images/gh-pelican-travis/banner.png"/>
+
+    <!-- General purpose meta -->
+    <meta name="description" content="Olá pessoal! Estou fazendo esta postagem para ajudar quem quer criar seu site no GitHub Pages usando Pelican para a criação das páginas e o..."/>
+    <meta name="keywords" content="gh-pages, pelican, travis-ci, web"/>
+
+    </head>
+
+    <body class="green lighten-5">
+        <header>
+            <!-- Navigation -->
+<div class="navbar-fixed">
+    <nav class="green role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="/" class="brand-logo">
+                    Grupy-DF
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li ><a href="http://grupydf.github.io/comunidade">Comunidade</a></li>
+                    <li ><a href="http://grupydf.github.io/membros">Membros</a></li>
+                    <li ><a href="http://grupydf.github.io/blog">Blog</a></li>
+                    <li ><a href="http://grupydf.github.io/blog/categorias">Categorias</a></li>
+                    <li ><a href="http://grupydf.github.io/blog/autores">Autores</a></li>
+                    <li ><a href="http://grupydf.github.io/blog/tags">Tags</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li class="green lighten-1" id="nav-mobile-header">
+                        <div class="row center">
+                            <div class="col s12" id="nav-mobile-header-img">
+                                <a href="/" alt="Grupy-DF" title="Grupy-DF">
+                                    <img class="circle responsive-img valign z-depth-1" alt="Grupy-DF Logo" title="Grupy-DF" src="http://grupydf.github.io/images/logo/logo-inv.png">
+                                </a>
+                            </div>
+                            <div class="col s12" id="nav-mobile-header-text">
+                                <span class="green-text text-lighten-5">Grupy-DF</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li ><a href="http://grupydf.github.io/comunidade">Comunidade</a></li>
+                    <li ><a href="http://grupydf.github.io/membros">Membros</a></li>
+                    <li ><a href="http://grupydf.github.io/blog">Blog</a></li>
+                    <li ><a href="http://grupydf.github.io/blog/categorias">Categorias</a></li>
+                    <li ><a href="http://grupydf.github.io/blog/autores">Autores</a></li>
+                    <li ><a href="http://grupydf.github.io/blog/tags">Tags</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+            <!-- Banner -->
+<div class="hero hero-article" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('http://grupydf.github.io/images/gh-pelican-travis/banner.png')">
+</div>
+        </header>
+        <main>
+            <!-- Content -->
+<div class="container content-container">
+    <div style="bottom: 45px; right: 24px;" class="fixed-action-btn">
+        <a title="Código fonte no GitHub" class="btn-floating btn-large" href="http://github.com/grupydf/grupydf.github.io/tree/pelican/content/articles/gh-pages-com-pelican-e-travis-ci.rst" target="_blank">
+            <i class="fa fa-code"></i> Código Fonte
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align animated bounceInDown slow article-meta">
+            <h1 class="white-text">GitHub Pages com Pelican e Travis-CI</h1>
+            <div class="article-metadata green-text text-lighten-5">
+                <span class="article-author-name">
+                <a href="http://grupydf.github.io/blog/autores/humberto-rocha" title="Humberto Rocha" class="green-text text-lighten-5">
+                        <i class="fa fa-user"></i> Humberto Rocha
+                    </a>
+                </span>
+                <span class="article-category">
+                <a href="http://grupydf.github.io/blog/categorias/programacao-web" title="Programação Web" class="green-text text-lighten-5">
+                        <i class="fa fa-folder"></i> Programação Web
+                    </a>
+                </span>
+                <span class="article-datetime">
+                    <i class="fa fa-calendar"></i> <time datetime="2015-12-24T12:00:00-02:00">Qui 24 dezembro 2015</time>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 white z-depth-2 article">
+<ul class="breadcrumb">
+    <li>
+    <a class="grey-text text-darken-1" title="Grupy-DF Home" href="/"><i class="fa fa-home grey-text text-darken-2"></i></i></a>
+    </li>
+        <li>
+        <a class="grey-text text-darken-1" title="Grupy-DF Blog|escape" href="http://grupydf.github.io/blog">Grupy-DF Blog</a>
+        </li>
+        <li>
+        <a class="grey-text text-darken-1" title="Programação Web|escape" href="http://grupydf.github.io/blog/categorias/programacao-web">Programação Web</a>
+        </li>
+        <li class="grey-text text-lighten-1">GitHub Pages com Pelican e Travis-CI</li>
+</ul>            <div class="article-contents">
+            <html><body><p>Olá pessoal!</p>
+<p>Estou fazendo esta postagem para ajudar quem quer criar seu site no <a class="reference external" href="http://pages.github.com">GitHub Pages</a> usando <a class="reference external" href="http://blog.getpelican.com">Pelican</a> para a criação das páginas e o <a class="reference external" href="https://travis-ci.org">Travis-CI</a> para automatizar a tarefa de geração e publicação.</p>
+<p>Este guia assume que o leitor possua conta no <a class="reference external" href="http://github.com">GitHub</a> e no <a class="reference external" href="https://travis-ci.org">Travis-CI</a> e tenha familiaridade com o ambiente python. A versão do pelican utilizada ao elaborar esta publicação foi a 3.6.</p>
+<div class="section" id="o-github-pages">
+<h2>O GitHub Pages</h2>
+<p>O GitHub Pages é uma funcionalidade gratuita do GitHub para hospedar conteúdo estático (html, css, js e imagens) e publicar através de um sub-domínio de <strong>github.io</strong> ou até mesmo de um domínio customizado. É baseado em seu funcionamento que iremos guiar nossos próximos passos.</p>
+<p>Resumidamente existem duas formas de se criar uma página pelo gh pages:</p>
+<p><strong>1 - Página de usuário/organização</strong></p>
+<p>Para este tipo de página crie um repositório com o nome <tt class="docutils literal">usuario.github.io</tt>, onde <tt class="docutils literal">usuario</tt> é o nome de usuário ou organização da conta em que o repositório será criado:</p>
+<div class="figure align-center" style="width: 717px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/pagina-usuario.png"><img alt="Repositório da página de usuário" src="http://grupydf.github.io/images/gh-pelican-travis/pagina-usuario.png" style="width: 717px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>O conteúdo a ser publicado deve ser colocado na <strong>branch master</strong> e os arquivos do pelican na <strong>branch pelican</strong>.</p>
+<p><strong>2 - Página de projeto</strong></p>
+<p>Para este tipo de página crie um repositório com o nome <tt class="docutils literal">meuprojeto</tt>, onde <tt class="docutils literal">meuprojeto</tt> é o nome desejado para o projeto que será publicado em <tt class="docutils literal">usuario.github.io</tt>:</p>
+<div class="figure align-center" style="width: 718px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/pagina-projeto.png"><img alt="Repositório da página de projeto" src="http://grupydf.github.io/images/gh-pelican-travis/pagina-projeto.png" style="width: 718px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>O conteúdo a ser publicado deve ser colocado na <strong>branch gh-pages</strong> e os arquivos do pelican na <strong>branch pelican</strong>.</p>
+<p>Para mais informações acesse o site oficial do <a class="reference external" href="http://pages.github.com">GitHub Pages</a>.</p>
+</div>
+<div class="section" id="pelican">
+<h2>Pelican</h2>
+<p>O pelican é um gerador de site estático otimizado por padrão para criação de blogs. Utilizaremos aqui, para fins de demonstração, o modelo padrão do de blog seguindo o caminho de criação de página de usuário/organização, qualquer diferença do caminho de página de projeto será descrita quando necessário.</p>
+<p>Para instalar o pelican basta rodar o comando:</p>
+<div class="highlight"><pre><span></span>$ pip install <span class="nv">pelican</span><span class="o">==</span><span class="m">3</span>.6
+</pre></div>
+<p>Para criar um projeto faça:</p>
+<div class="highlight"><pre><span></span>$ mkdir humrochagf.github.io
+$ <span class="nb">cd</span> humrochagf.github.io
+$ pelican-quickstart
+Welcome to pelican-quickstart v3.6.3.
+
+This script will <span class="nb">help</span> you create a new Pelican-based website.
+
+Please answer the following questions so this script can generate the files
+needed by Pelican.
+
+
+&gt; Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span>
+&gt; What will be the title of this web site? Meu Blog
+&gt; Who will be the author of this web site? Humberto Rocha
+&gt; What will be the default language of this web site? <span class="o">[</span>en<span class="o">]</span> pt
+&gt; Do you want to specify a URL prefix? e.g., http://example.com   <span class="o">(</span>Y/n<span class="o">)</span> n
+&gt; Do you want to <span class="nb">enable</span> article pagination? <span class="o">(</span>Y/n<span class="o">)</span> y
+&gt; How many articles per page <span class="k">do</span> you want? <span class="o">[</span><span class="m">10</span><span class="o">]</span>
+&gt; What is your <span class="nb">time</span> zone? <span class="o">[</span>Europe/Paris<span class="o">]</span> America/Sao_Paulo
+&gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> y
+&gt; Do you want an auto-reload <span class="p">&amp;</span> simpleHTTP script to assist with theme and site development? <span class="o">(</span>Y/n<span class="o">)</span> y
+&gt; Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> n
+&gt; Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> n
+&gt; Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> n
+&gt; Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> n
+&gt; Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> n
+&gt; Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> y
+&gt; Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> y
+Done. Your new project is available at /caminho/para/humrochagf.github.io
+</pre></div>
+<p>Inicialize um repositório neste diretório e suba os dados para a <strong>branch pelican</strong>:</p>
+<div class="highlight"><pre><span></span>$ git init
+$ git remote add origin git@github.com:humrochagf/humrochagf.github.io.git
+$ git checkout -b pelican
+$ git add .
+$ git commit -m <span class="s1">'iniciando branch pelican'</span>
+$ git push origin pelican
+</pre></div>
+<p>Para publicar o conteúdo na <strong>branch master</strong> é necessário o módulo ghp-import:</p>
+<div class="highlight"><pre><span></span>$ pip install ghp-import
+$ <span class="nb">echo</span> <span class="s1">'pelican==3.6\nghp-import'</span> &gt; requirements.txt
+$ git add requirements.txt
+$ git commit -m <span class="s1">'adicionando requirements'</span>
+$ git push origin pelican
+</pre></div>
+<p>Publicando o blog:</p>
+<div class="highlight"><pre><span></span>$ make github
+</pre></div>
+<div class="figure align-center" style="width: 1117px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/blog.png"><img alt="Primeira publicação do blog" src="http://grupydf.github.io/images/gh-pelican-travis/blog.png" style="width: 1117px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>Para publicar no caso da página de projeto altere o conteúdo da variável <tt class="docutils literal">GITHUB_PAGES_BRANCH</tt> do makefile de <tt class="docutils literal">master</tt> para <tt class="docutils literal"><span class="pre">gh-pages</span></tt>.</p>
+<p>Agora que o nosso blog está rodando no gh pages vamos automatizar a tarefa de geração das páginas para poder alterar o conteúdo do blog e fazer novas postagens sem precisar estar um uma máquina com o ambiente do pelican configurado.</p>
+</div>
+<div class="section" id="travis-ci">
+<h2>Travis-CI</h2>
+<p>O Travis-CI é uma plataforma de Integração Contínua que monta e testa projetos hospedados no github e será nossa ferramenta para automatizar a montagem das páginas do blog.</p>
+<p>A Primeira coisa a ser feita é ir ao <a class="reference external" href="https://travis-ci.org">Travis-CI</a> e habilitar seu repositório.</p>
+<div class="figure align-center" style="width: 445px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/travis-repo1.png"><img alt="Habilitando repositório no travis" src="http://grupydf.github.io/images/gh-pelican-travis/travis-repo1.png" style="width: 445px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>Em seguida vá nas configurações do repositório no travis e desabilite a opção <strong>Build pull requests</strong> para seu blog não ser atualizado quando alguém abrir um pull request e habilite o <strong>Build only if .travis.yml is present</strong> para que somente a branch que possuir o arquivo .travis.yml gerar atualização no blog.</p>
+<div class="figure align-center" style="width: 703px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/travis-repo2.png"><img alt="Configurando remositório no travis" src="http://grupydf.github.io/images/gh-pelican-travis/travis-repo2.png" style="width: 703px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>O próximo passo é criar uma <strong>Deploy Key</strong> para que o travis possa publicar conteúdo no github. Para isso gere uma chave ssh na raiz do repositório local:</p>
+<div class="highlight"><pre><span></span>$ ssh-keygen -f publish-key
+Generating public/private rsa key pair.
+Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+Enter same passphrase again:
+Your identification has been saved in publish-key.
+Your public key has been saved in publish-key.pub.
+</pre></div>
+<p>Criada a chave vamos cifrar usando a ferramenta <a class="reference external" href="https://github.com/travis-ci/travis.rb">Travis-CLI</a> (certifique-se de que esteja instalada em sua máquina) para poder publicar em nosso repositório sem expor o conteúdo da chave privada:</p>
+<div class="highlight"><pre><span></span>$ travis encrypt-file publish-key
+Detected repository as humrochagf/humrochagf.github.io, is this correct? <span class="p">|</span>yes<span class="p">|</span> yes
+encrypting publish-key <span class="k">for</span> humrochagf/humrochagf.github.io
+storing result as publish-key.enc
+storing secure env variables <span class="k">for</span> decryption
+
+Please add the following to your build script <span class="o">(</span>before_install stage in your .travis.yml, <span class="k">for</span> instance<span class="o">)</span>:
+
+    openssl aes-256-cbc -K <span class="nv">$encrypted_591fe46d4973_key</span> -iv <span class="nv">$encrypted_591fe46d4973_iv</span> -in publish-key.enc -out publish-key -d
+
+Pro Tip: You can add it automatically by running with --add.
+
+Make sure to add publish-key.enc to the git repository.
+Make sure not to add publish-key to the git repository.
+Commit all changes to your .travis.yml.
+</pre></div>
+<p>Como dito no resultado do comando podemos adicionar a opção <cite>--add</cite> para já adicionar as informações no <cite>.travis.yml</cite>, porém, para evitar de sobrescrever algum comando que venha existir no seu arquivo é recomendado editar manualmente.</p>
+<p>Em nosso caso iremos criar o arquivo:</p>
+<div class="highlight"><pre><span></span>$ touch .travis.yml
+</pre></div>
+<p>E adicionar o seguinte conteúdo:</p>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">sudo</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="l l-Scalar l-Scalar-Plain">branches</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">only</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pelican</span>
+<span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="l l-Scalar l-Scalar-Plain">before_install</span><span class="p p-Indicator">:</span>
+<span class="c1"># troque a linha abaixo pelo resultado do comando:</span>
+<span class="c1"># travis encrypt-file publish-key</span>
+<span class="c1"># porém mantenha o final:</span>
+<span class="c1"># -out ~/.ssh/publish-key -d</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openssl aes-256-cbc -K $encrypted_591fe46d4973_key -iv $encrypted_591fe46d4973_iv -in publish-key.enc -out ~/.ssh/publish-key -d</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">chmod u=rw,og= ~/.ssh/publish-key</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">echo "Host github.com" &gt;&gt; ~/.ssh/config</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">echo "  IdentityFile ~/.ssh/publish-key" &gt;&gt; ~/.ssh/config</span>
+<span class="c1"># substitua git@github.com:humrochagf/humrochagf.github.io.git</span>
+<span class="c1"># pelo endereço de acesso ssh do seu repositório</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">git remote set-url origin git@github.com:humrochagf/humrochagf.github.io.git</span>
+<span class="c1"># Caso esteja montando a página de projeto troque master:master</span>
+<span class="c1"># por gh-pages:gh-pages</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">git fetch origin -f master:master</span>
+<span class="l l-Scalar l-Scalar-Plain">install</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install --upgrade pip</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install -r requirements.txt</span>
+<span class="l l-Scalar l-Scalar-Plain">script</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">make github</span>
+</pre></div>
+<p>Removemos em seguida a chave privada não cifrada para não correr o risco de publicar no repositório:</p>
+<div class="highlight"><pre><span></span>$ rm publish-key
+</pre></div>
+<p><strong>ATENÇÃO</strong>: Em hipótese alguma adicione o arquivo <strong>publish-key</strong> em seu repositório, pois ele contém a chave privada não cifrada que tem poder de commit em seu repositório, e não deve ser publicada. Adicione somente o arquivo <strong>publish-key.enc</strong>. Se você adicionou por engano refaça os passos de geração da chave e cifração para gerar uma chave nova.</p>
+<p>Agora adicionaremos os arquivos no repositório:</p>
+<div class="highlight"><pre><span></span>$ git add .travis.yml publish-key.enc
+$ git commit -m <span class="s1">'adicionando arquivos do travis'</span>
+$ git push origin pelican
+</pre></div>
+<p>Para liberar o acesso do travis adicionaremos a deploy key no github com o conteúdo da chave pública <strong>publish-key.pub</strong>:</p>
+<div class="figure align-center" style="width: 213px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/deploy-key.png"><img alt="Adicionando a deploy key no github" src="http://grupydf.github.io/images/gh-pelican-travis/deploy-key.png" style="width: 213px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>Pronto, agora podemos publicar conteúdo em nosso blog sem a necessidade de ter o pelican instalado na máquina:</p>
+<div class="figure align-center" style="width: 596px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem1.png"><img alt="Fazendo a primeira postagem" src="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem1.png" style="width: 596px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>Que o travis irá publicar para você:</p>
+<div class="figure align-center" style="width: 1119px; height: auto; max-width: 100%;">
+<a class="reference external image-reference" href="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem2.png"><img alt="Blog com a primeira postagem" src="http://grupydf.github.io/images/gh-pelican-travis/primeira-postagem2.png" style="width: 1119px; height: auto; max-width: 100%;"/></a>
+</div>
+<p>Caso você tenha animado de criar seu blog pessoal e quer saber mais sobre pelican você pode acompanhar a série do <a class="reference external" href="http://mindbending.org/pt/series/migrando-para-o-pelican">Mind Bending</a> sobre o assunto.</p>
+</div>
+</body></html>
+            </div>
+            <div class="article-tags">
+                <span class="icon"><i title="Tags do artigo" class="fa fa-tags"></i></i></span>
+                <span class="pill green lighten-2"><a class="white-text" href="http://grupydf.github.io/blog/tags/gh-pages" title="Tag 'gh-pages'">gh-pages</a></span>
+                <span class="pill green lighten-2"><a class="white-text" href="http://grupydf.github.io/blog/tags/pelican" title="Tag 'pelican'">pelican</a></span>
+                <span class="pill green lighten-2"><a class="white-text" href="http://grupydf.github.io/blog/tags/travis-ci" title="Tag 'travis-ci'">travis-ci</a></span>
+                <span class="pill green lighten-2"><a class="white-text" href="http://grupydf.github.io/blog/tags/web" title="Tag 'web'">web</a></span>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="row" id="comments">
+        <div class="col s12 m12 l12 white z-depth-2">
+            <h4>Comentários</h4>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'grupydf'; // required: replace example with your forum shortname
+
+
+                var disqus_url = 'http://grupydf.github.io/blog/github-pages-com-pelican-e-travis-ci';
+                var disqus_config = function () {
+                    this.language = "pt";
+                };
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+</div>"
+
+            <!-- Footer -->
+<footer class="page-footer green darken-3">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Sobre</h5>
+                <p class="grey-text text-lighten-4">
+                O Grupy-DF é uma comunidade de usuários (profissionais e
+                  amadores) da linguagem Python, onde prezamos pela troca de
+                  conhecimento, respeito mútuo e diversidade (tanto de opinião
+                  quanto de tecnologias).
+                </p>
+
+
+            </div>
+            <div class="col l3 offset-l3 s12">
+                <h5 class="white-text">Social</h5>
+                <ul class="social-links">
+                    <li>
+                        <a class="white-text" href="https://t.me/grupydf" title="Telegram">
+                            <i class="fa fa-paper-plane"></i> Telegram
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/grupydf" title="GitHub">
+                            <i class="fa fa-github"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.meetup.com/pt-BR/pythondf/" title="Meetup">
+                            <i class="fa fa-meetup"></i> Meetup
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://twitter.com/grupydf" title="Twitter">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/groups/grupydf" title="Facebook">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://groups.google.com/forum/#!forum/grupy-df" title="Mailing List">
+                            <i class="fa fa-envelope"></i> Mailing List
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright green darken-4">
+        <div class="container">
+            Feito com 
+            <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>,
+            <a class="orange-text text-lighten-3" href="https://github.com/getpelican/pelican">Pelican</a>,
+            <a class="orange-text text-lighten-3" href="https://python.org/">Python</a> e
+            <a class="orange-text text-lighten-3" href="http://vim.org">VIM</a>.
+        </div>
+    </div>
+</footer>
+            <!-- Scripts -->
+            <script src="http://grupydf.github.io/theme/js/jquery-2.1.1.min.js"></script>
+            <script src="http://grupydf.github.io/theme/js/materialize.min.js"></script>
+            <script src="http://grupydf.github.io/theme/js/parallax.js"></script>
+            <script src="http://grupydf.github.io/theme/js/init.js"></script>
+        </main>
+    </body>
+</html>
