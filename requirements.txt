@@ -11,7 +11,7 @@ markupsafe
 mdx-video
 paramiko
 pelican==3.6
-pillow==2.6.1
+pillow==9.3.0
 pycrypto
 pygments
 python-dateutil
