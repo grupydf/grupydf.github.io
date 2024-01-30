@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://grupydf.github.io'
+SITEURL = 'https://grupydf.github.io'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'blog/feeds.atom'
